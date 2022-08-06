@@ -4,7 +4,5 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 	autotag = { enable = true },
-	autopairs = { enable = true },
-	endwise = { enable = true },
-	context_commentstring = { enable = true, enable_autocmd = false },
+	context_commentstring = { enable = true },
 })

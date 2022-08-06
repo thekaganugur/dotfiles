@@ -1,3 +1,4 @@
+lua << EOF
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	callback = function()
@@ -18,3 +19,4 @@ vim.api.nvim_create_autocmd({ "VimResized " }, {
 		vim.cmd("autocmd VimResized * wincmd =")
 	end,
 })
+EOF

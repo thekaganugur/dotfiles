@@ -1,0 +1,69 @@
+{
+  "npm.binPath": "yarn",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "jsonc",
+    "python",
+    "java",
+    "lua"
+  ],
+  "eslint.autoFixOnSave": true,
+
+  "coc.source.around.enable": false,
+  "coc.source.buffer.enable": false,
+
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+
+  "suggest.completionItemKindLabels": {
+    "text": "",
+    "method": "",
+    "function": "",
+    "constructor": "",
+    "field": "ﰠ",
+    "variable": "",
+    "class": "ﴯ",
+    "interface": "",
+    "module": "",
+    "property": "ﰠ",
+    "unit": "塞",
+    "value": "",
+    "enum": "",
+    "keyword": "",
+    "snippet": "",
+    "color": "",
+    "file": "",
+    "reference": "",
+    "folder": "",
+    "enumMember": "",
+    "constant": "",
+    "struct": "פּ",
+    "event": "",
+    "operator": "",
+    "typeParameter": "<>"
+  },
+
+  "javascript.suggest.completeFunctionCalls": false,
+  "typescript.suggest.completeFunctionCalls": false,
+
+  "javascript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.useAliasesForRenames": false,
+
+  "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.telemetry.enable": true,
+  "Lua.hint.enable": false,
+
+  "suggest.enablePreselect": false,
+  "suggest.noselect": true
+}
