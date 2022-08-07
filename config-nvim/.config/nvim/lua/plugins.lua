@@ -89,8 +89,8 @@ return require("packer").startup({
 		use("f-person/auto-dark-mode.nvim")
 		use("norcalli/nvim-colorizer.lua")
 
-		use("lukas-reineke/lsp-format.nvim")
-    use('j-hui/fidget.nvim')
+		-- use("lukas-reineke/lsp-format.nvim")
+		use("j-hui/fidget.nvim")
 	end,
 	config = {
 		display = {

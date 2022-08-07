@@ -15,7 +15,7 @@ require("lir").setup({
 		["q"] = actions.quit,
 
 		["A"] = actions.mkdir,
-		["a"] = actions.newfile,
+		["a"] = actions.touch,
 		["cw"] = actions.rename,
 		["D"] = actions.delete,
 

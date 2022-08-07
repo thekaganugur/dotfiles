@@ -1,8 +1,6 @@
 require("lsp_signature").setup({
 	hint_enable = false,
-	floating_window = true,
-	-- doc_lines = 0,
-	toggle_key = "<c-s>",
+	floating_window = false,
 	handler_opts = { border = "none" },
 	hi_parameter = "DiagnosticInfo",
 })
