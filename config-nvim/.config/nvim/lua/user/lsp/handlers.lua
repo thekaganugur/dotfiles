@@ -49,6 +49,7 @@ return {
 			on_attach = function(client, bufnr)
 				client.resolved_capabilities.document_formatting = false
 				vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting_sync()" })
+				require("lsp-format").on_attach(client)
 				on_attach(client, bufnr)
 			end,
 			settings = require("lua-dev").setup().settings,
@@ -59,9 +60,20 @@ return {
 		require("lspconfig").eslint.setup({
 			on_attach = function(client, bufnr)
 				vim.api.nvim_create_autocmd("BufWritePre", { command = "EslintFixAll" })
+				require("lsp-format").on_attach(client)
 				on_attach(client, bufnr)
 			end,
 			capabilities = capabilities,
 		})
 	end,
+
+	-- ["null-ls"] = require("null-ls").setup({
+	-- 	on_attach = function(client, bufnr)
+	-- 		print("fooooooo")
+	-- 		if client.supports_method("textDocument/formatting") then
+	-- 			print("fooooooo")
+	-- 			require("lsp-format").on_attach(client)
+	-- 		end
+	-- 	end,
+	-- }),
 }

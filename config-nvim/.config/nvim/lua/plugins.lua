@@ -88,6 +88,9 @@ return require("packer").startup({
 		use("numToStr/Comment.nvim")
 		use("f-person/auto-dark-mode.nvim")
 		use("norcalli/nvim-colorizer.lua")
+
+		use("lukas-reineke/lsp-format.nvim")
+    use('j-hui/fidget.nvim')
 	end,
 	config = {
 		display = {
