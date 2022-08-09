@@ -28,3 +28,7 @@ lua require'user.signature'
 lua require'user.comment'
 lua require'user.auto_dark_mode'
 lua require'colorizer'.setup()
+
+command Format execute "lua vim.lsp.buf.formatting()"
+command FormatAuto execute 'lua vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting_sync()" })'
+let g:Illuminate_ftblacklist = ['TelescopePrompt', 'qf', 'lir']

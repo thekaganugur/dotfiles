@@ -5,7 +5,7 @@ return require("packer").startup({
 	function(use)
 		use("wbthomason/packer.nvim")
 
-		use("sainnhe/everforest") -- Theme
+		use("sainnhe/everforest")
 
 		---* Treesitter
 		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -38,7 +38,6 @@ return require("packer").startup({
 		---* Git
 		use("tpope/vim-fugitive")
 		use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
-		use("junegunn/gv.vim")
 		---* Git
 
 		use("tpope/vim-repeat")
@@ -48,7 +47,7 @@ return require("packer").startup({
 
 		use("antoinemadec/FixCursorHold.nvim") --Fix CursorHold Performance.
 
-		use("mbbill/undotree")
+		-- use("mbbill/undotree")
 
 		-- use("metakirby5/codi.vim")
 		-- use({ "0x100101/lab.nvim", run = "cd js && npm ci" })
@@ -68,7 +67,7 @@ return require("packer").startup({
 			-- 'hrsh7th/cmp-buffer',
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
+			-- "hrsh7th/cmp-nvim-lsp-signature-help",
 		})
 
 		-- Snippets
@@ -89,8 +88,8 @@ return require("packer").startup({
 		use("f-person/auto-dark-mode.nvim")
 		use("norcalli/nvim-colorizer.lua")
 
-		-- use("lukas-reineke/lsp-format.nvim")
 		use("j-hui/fidget.nvim")
+		use("kevinhwang91/nvim-bqf")
 	end,
 	config = {
 		display = {
