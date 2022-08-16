@@ -45,13 +45,7 @@ return require("packer").startup({
 		use("szw/vim-maximizer")
 		use("folke/which-key.nvim")
 
-		use("antoinemadec/FixCursorHold.nvim") --Fix CursorHold Performance.
-
-		-- use("mbbill/undotree")
-
-		-- use("metakirby5/codi.vim")
-		-- use({ "0x100101/lab.nvim", run = "cd js && npm ci" })
-		-- use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+		use({ "antoinemadec/FixCursorHold.nvim" })
 
 		use({
 			"williamboman/mason.nvim",
@@ -64,10 +58,9 @@ return require("packer").startup({
 		use({
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
-			-- 'hrsh7th/cmp-buffer',
+			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
-			-- "hrsh7th/cmp-nvim-lsp-signature-help",
 		})
 
 		-- Snippets
@@ -90,6 +83,8 @@ return require("packer").startup({
 
 		use("j-hui/fidget.nvim")
 		use("kevinhwang91/nvim-bqf")
+
+		use("TamaMcGlinn/quickfixdd")
 	end,
 	config = {
 		display = {

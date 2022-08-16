@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/auto-dark-mode.nvim",
     url = "https://github.com/f-person/auto-dark-mode.nvim"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -185,10 +190,8 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-bqf"] = {
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/opt/nvim-bqf",
+    loaded = true,
+    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/nvim-bqf",
     url = "https://github.com/kevinhwang91/nvim-bqf"
   },
   ["nvim-cmp"] = {
@@ -251,6 +254,11 @@ _G.packer_plugins = {
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  quickfixdd = {
+    loaded = true,
+    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/quickfixdd",
+    url = "https://github.com/TamaMcGlinn/quickfixdd"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -289,13 +297,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)
