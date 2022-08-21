@@ -85,6 +85,16 @@ return require("packer").startup({
 		use("kevinhwang91/nvim-bqf")
 
 		use("TamaMcGlinn/quickfixdd")
+
+		use({
+			"mrshmllow/document-color.nvim",
+			config = function()
+				require("document-color").setup({
+					-- Default options
+					mode = "single", -- "background" | "foreground" | "single"
+				})
+			end,
+		})
 	end,
 	config = {
 		display = {

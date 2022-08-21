@@ -1,6 +1,8 @@
 local function on_attach(client, bufnr)
-	require("illuminate").on_attach(client)
 	require("user.lsp.keymaps")(bufnr)
+	if client.server_capabilities.colorProvider then
+		require("document-color").buf_attach(bufnr)
+	end
 end
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 

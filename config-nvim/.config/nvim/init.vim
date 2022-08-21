@@ -21,6 +21,7 @@ lua require'nvim-surround'.setup()
 lua require'user.lsp'
 lua require'user.cmp'
 lua require'user.ui'
+lua require'user.commands'
 lua require'user.autocommands'
 lua require'user.autopairs'
 lua require'user.illuminate'
@@ -30,20 +31,12 @@ lua require'user.auto_dark_mode'
 lua require'colorizer'.setup()
 lua require('bqf').setup({preview = {auto_preview = false}})
 
-command Format execute "lua vim.lsp.buf.formatting()"
-command FormatAuto execute 'lua vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting_sync()" })'
 
-let g:Illuminate_ftblacklist = ['TelescopePrompt', 'qf', 'lir']
- 
 let g:cursorhold_updatetime = 200
-
-
-
 
 
 au FileType qf call AdjustWindowHeight(4, 8)
 " au FileType fugitive call AdjustWindowHeight(8, 10)
-
 function! AdjustWindowHeight(minheight, maxheight)
   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
