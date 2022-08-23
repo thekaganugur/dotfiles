@@ -34,10 +34,11 @@ set foldmethod=expr                     " Use expression for folding
 set foldexpr=nvim_treesitter#foldexpr() " Use treesitter for expression
 set foldlevelstart=99                   " Do not fold eveything at startup
 
+set signcolumn=yes:1
+
 
 """ Color
 colorscheme everforest
 let g:everforest_background = 'hard'
 let g:everforest_enable_italic = 1
 let g:everforest_disable_italic_comment = 1
-let g:everforest_sign_column_background = 'none'

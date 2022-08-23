@@ -86,15 +86,7 @@ return require("packer").startup({
 
 		use("TamaMcGlinn/quickfixdd")
 
-		use({
-			"mrshmllow/document-color.nvim",
-			config = function()
-				require("document-color").setup({
-					-- Default options
-					mode = "single", -- "background" | "foreground" | "single"
-				})
-			end,
-		})
+		use("mrshmllow/document-color.nvim")
 	end,
 	config = {
 		display = {
