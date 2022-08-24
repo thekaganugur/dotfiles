@@ -40,8 +40,6 @@ return require("packer").startup({
 		use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
 		---* Git
 
-		use("tpope/vim-repeat")
-
 		use("szw/vim-maximizer")
 		use("folke/which-key.nvim")
 
@@ -87,6 +85,8 @@ return require("packer").startup({
 		use("TamaMcGlinn/quickfixdd")
 
 		use("mrshmllow/document-color.nvim")
+
+		use("kwkarlwang/bufresize.nvim")
 	end,
 	config = {
 		display = {

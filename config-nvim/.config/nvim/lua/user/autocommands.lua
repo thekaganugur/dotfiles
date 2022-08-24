@@ -11,10 +11,3 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 		vim.highlight.on_yank()
 	end,
 })
-
--- Auto resize buffer when window resize
-vim.api.nvim_create_autocmd({ "VimResized " }, {
-	callback = function()
-		vim.cmd("autocmd VimResized * wincmd =")
-	end,
-})

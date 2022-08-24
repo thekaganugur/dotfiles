@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/auto-dark-mode.nvim",
     url = "https://github.com/f-person/auto-dark-mode.nvim"
   },
+  ["bufresize.nvim"] = {
+    loaded = true,
+    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/bufresize.nvim",
+    url = "https://github.com/kwkarlwang/bufresize.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/cmp-buffer",

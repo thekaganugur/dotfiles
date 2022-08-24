@@ -31,6 +31,7 @@ lua require'user.auto_dark_mode'
 lua require'colorizer'.setup()
 lua require('bqf').setup({preview = {auto_preview = false}})
 lua require("document-color").setup({ mode = "background",  })-- "background" | "foreground" | "single"
+lua require("bufresize").setup()
 
 
 let g:cursorhold_updatetime = 200
