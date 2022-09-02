@@ -43,8 +43,6 @@ return require("packer").startup({
 		use("szw/vim-maximizer")
 		use("folke/which-key.nvim")
 
-		use({ "antoinemadec/FixCursorHold.nvim" })
-
 		use({
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
@@ -81,7 +79,6 @@ return require("packer").startup({
 
 		use("j-hui/fidget.nvim")
 		use("kevinhwang91/nvim-bqf")
-
 		use("TamaMcGlinn/quickfixdd")
 
 		use("mrshmllow/document-color.nvim")

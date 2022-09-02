@@ -34,9 +34,6 @@ lua require("document-color").setup({ mode = "background",  })-- "background" | 
 lua require("bufresize").setup()
 
 
-let g:cursorhold_updatetime = 200
-
-
 au FileType qf call AdjustWindowHeight(4, 8)
 " au FileType fugitive call AdjustWindowHeight(8, 10)
 function! AdjustWindowHeight(minheight, maxheight)

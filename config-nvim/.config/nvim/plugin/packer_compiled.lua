@@ -74,11 +74,6 @@ _G.packer_plugins = {
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
-  ["FixCursorHold.nvim"] = {
-    loaded = true,
-    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
-    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -293,11 +288,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/vim-maximizer",
     url = "https://github.com/szw/vim-maximizer"
-  },
-  ["vim-repeat"] = {
-    loaded = true,
-    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/vim-repeat",
-    url = "https://github.com/tpope/vim-repeat"
   },
   ["which-key.nvim"] = {
     loaded = true,

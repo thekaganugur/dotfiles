@@ -45,11 +45,13 @@ local g = {
 	u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
 	S = { "<cmd>Telescope git_stash<cr>", "List Stash" },
 	o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+	b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle line blame" },
+	B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 	c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 	C = { "<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)" },
-	v = { "<cmd>GV", "view commits" },
-	V = { "<cmd>GV!", "view buffer commits" },
+	q = { "<cmd>Gitsigns setqflist<cr>", "Git changes qf" },
+	-- v = { "<cmd>GV", "view commits" },
+	-- V = { "<cmd>GV!", "view buffer commits" },
 }
 
 local z = {
