@@ -39,6 +39,7 @@ set signcolumn=yes:1
 
 """ Color
 colorscheme everforest
+set background=light
 let g:everforest_background = 'hard'
 let g:everforest_enable_italic = 1
 let g:everforest_disable_italic_comment = 1

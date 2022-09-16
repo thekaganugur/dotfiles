@@ -3,9 +3,9 @@ source $HOME/.config/nvim/general/mappings.vim
 
 """ Plugins
 lua require'plugins'
-source $HOME/.config/nvim/plug-config/maximizer.vim
-source $HOME/.config/nvim/plug-config/telescope.vim
-source $HOME/.config/nvim/plug-config/fm-nvim.vim
+
+let g:maximizer_set_default_mapping = 0
+nnoremap <C-W>f :MaximizerToggle<CR>
 
 
 lua require'treesitter-config'
@@ -27,7 +27,6 @@ lua require'user.autopairs'
 lua require'user.illuminate'
 lua require'user.signature'
 lua require'user.comment'
-lua require'user.auto_dark_mode'
 lua require'colorizer'.setup()
 lua require('bqf').setup({preview = {auto_preview = false}})
 lua require("document-color").setup({ mode = "background",  })-- "background" | "foreground" | "single"

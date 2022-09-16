@@ -1,7 +1,8 @@
+-- See `:help lualine.txt`
 require("lualine").setup({
 	options = {
 		theme = "everforest",
-		section_separators = { "", "" },
+		section_separators = "",
 		globalstatus = true,
 	},
 	sections = {

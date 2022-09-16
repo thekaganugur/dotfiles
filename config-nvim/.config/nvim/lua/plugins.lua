@@ -1,3 +1,15 @@
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
+end
+local packer_bootstrap = ensure_packer()
+
 vim.cmd("autocmd BufWritePost plugins.lua PackerCompile") -- Auto compile when there are changes in plugins.lua
 vim.cmd([[packadd packer.nvim]])
 
@@ -9,6 +21,7 @@ return require("packer").startup({
 
 		---* Treesitter
 		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+		use("nvim-treesitter/nvim-treesitter-textobjects") -- Additional textobjects for treesitter
 		use({
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"windwp/nvim-ts-autotag",
@@ -32,7 +45,6 @@ return require("packer").startup({
 			requires = { "kyazdani42/nvim-web-devicons", "nvim-lua/plenary.nvim" },
 		})
 		use("tamago324/lir-git-status.nvim")
-		use("is0n/fm-nvim") -- Vifm integration
 		---* File explorer
 
 		---* Git
@@ -74,7 +86,7 @@ return require("packer").startup({
 		use("kylechui/nvim-surround")
 
 		use("numToStr/Comment.nvim")
-		use("f-person/auto-dark-mode.nvim")
+		-- use("f-person/auto-dark-mode.nvim")
 		use("norcalli/nvim-colorizer.lua")
 
 		use("j-hui/fidget.nvim")
@@ -84,6 +96,11 @@ return require("packer").startup({
 		use("mrshmllow/document-color.nvim")
 
 		use("kwkarlwang/bufresize.nvim")
+
+		use("dstein64/vim-startuptime")
+		if packer_bootstrap then
+			require("packer").sync()
+		end
 	end,
 	config = {
 		display = {
