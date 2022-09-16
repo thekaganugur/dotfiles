@@ -22,10 +22,8 @@ set linebreak                           " Break the line if overflows by not cha
 set textwidth=80                        " Effects gq, and color column
 set colorcolumn=+1                      " 80 + 1 width column
 
-set directory=~/.nvim/swap/             " Location to store swap file
 set nobackup
 set undofile                            " Store undo info in a file
-set undodir=~/.nvim/undo/               " Locatin to store undo info
 
 let g:loaded_netrw       = 1            " Disable netrw
 let g:loaded_netrwPlugin = 1            " Disable netrw
