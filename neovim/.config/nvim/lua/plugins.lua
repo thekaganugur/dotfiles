@@ -52,7 +52,6 @@ return require("packer").startup({
 		use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
 		---* Git
 
-		use("szw/vim-maximizer")
 		use("folke/which-key.nvim")
 
 		use({
@@ -80,6 +79,7 @@ return require("packer").startup({
 
 		use("RRethy/vim-illuminate")
 
+		use("lukas-reineke/lsp-format.nvim")
 		use("ray-x/lsp_signature.nvim")
 		use("stevearc/dressing.nvim")
 
@@ -95,16 +95,23 @@ return require("packer").startup({
 
 		use("mrshmllow/document-color.nvim")
 
-		use("kwkarlwang/bufresize.nvim")
-
 		use("dstein64/vim-startuptime")
+
+		use({
+			"anuvyklack/windows.nvim",
+			requires = {
+				"anuvyklack/middleclass",
+				"anuvyklack/animation.nvim",
+			},
+		})
+
 		if packer_bootstrap then
 			require("packer").sync()
 		end
 	end,
-	config = {
-		display = {
-			open_fn = require("packer.util").float,
-		},
-	},
+	-- config = {
+	-- 	display = {
+	-- 		open_fn = require("packer.util").float,
+	-- 	},
+	-- },
 })

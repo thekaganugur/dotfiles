@@ -18,7 +18,8 @@ set timeoutlen=400                      " Recommended by which-key
 set ignorecase                          " Ignore casing during searches
 set smartcase                           " Makes the search pattern case-sensitive whenever it containers uppercase characters)
 set scrolloff=3                         " Start scrolling before hitting most bottom line
-set linebreak                           " Break the line if overflows by not character but by word
+" set linebreak                           " Break the line if overflows by not character but by word
+" set breakindent
 set textwidth=80                        " Effects gq, and color column
 set colorcolumn=+1                      " 80 + 1 width column
 
@@ -32,7 +33,7 @@ set foldmethod=expr                     " Use expression for folding
 set foldexpr=nvim_treesitter#foldexpr() " Use treesitter for expression
 set foldlevelstart=99                   " Do not fold eveything at startup
 
-set signcolumn=yes:1
+set signcolumn=yes
 
 
 """ Color
@@ -40,4 +41,3 @@ colorscheme everforest
 set background=light
 let g:everforest_background = 'hard'
 let g:everforest_enable_italic = 1
-let g:everforest_disable_italic_comment = 1

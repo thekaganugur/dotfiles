@@ -84,10 +84,10 @@ _G.packer_plugins = {
     path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["bufresize.nvim"] = {
+  ["animation.nvim"] = {
     loaded = true,
-    path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/bufresize.nvim",
-    url = "https://github.com/kwkarlwang/bufresize.nvim"
+    path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/animation.nvim",
+    url = "https://github.com/anuvyklack/animation.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/lir.nvim",
     url = "https://github.com/tamago324/lir.nvim"
   },
+  ["lsp-format.nvim"] = {
+    loaded = true,
+    path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/lsp-format.nvim",
+    url = "https://github.com/lukas-reineke/lsp-format.nvim"
+  },
   ["lsp_signature.nvim"] = {
     loaded = true,
     path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
@@ -178,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  middleclass = {
+    loaded = true,
+    path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/middleclass",
+    url = "https://github.com/anuvyklack/middleclass"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -284,11 +294,6 @@ _G.packer_plugins = {
     path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
   },
-  ["vim-maximizer"] = {
-    loaded = true,
-    path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/vim-maximizer",
-    url = "https://github.com/szw/vim-maximizer"
-  },
   ["vim-startuptime"] = {
     loaded = true,
     path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/vim-startuptime",
@@ -298,6 +303,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["windows.nvim"] = {
+    loaded = true,
+    path = "/home/kgnugur/.local/share/nvim/site/pack/packer/start/windows.nvim",
+    url = "https://github.com/anuvyklack/windows.nvim"
   }
 }
 

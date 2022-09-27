@@ -1,4 +1,6 @@
 mkdir -p $XDG_CACHE_HOME/zsh
+mkdir -p $HOME/.local/bin
+
 eval "$(starship init zsh)"
 
 # Vi mode
@@ -8,6 +10,9 @@ export KEYTIMEOUT=1
 # Use modern completion system
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
+
+# Above line must be added after
+eval "$(zoxide init zsh)"
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -41,17 +46,12 @@ bindkey '^J' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-
-alias ls='ls --color=auto'
-#alias dir='dir --color=auto'
-#alias vdir='vdir --color=auto'
-
+# Aliases
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-
-# some more ls aliases
+alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'

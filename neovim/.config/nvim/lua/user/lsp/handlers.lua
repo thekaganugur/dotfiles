@@ -1,46 +1,39 @@
-local function on_attach(client, bufnr)
-	require("user.lsp.keymaps")(bufnr)
-	if client.server_capabilities.colorProvider then
-		require("document-color").buf_attach(bufnr)
-	end
-end
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- vim.api.nvim_create_autocmd("LspAttach", {
+-- 	callback = function(args)
+-- 		local bufnr = args.buf
+-- 		local client = vim.lsp.get_client_by_id(args.data.client_id)
+-- 		on_attach(client, bufnr)
+-- 	end,
+-- })
 
-local opts = {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
+local on_attach = require("user.lsp.on_attach")
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 return {
 	function(server_name)
-		require("lspconfig")[server_name].setup(opts)
+		require("lspconfig")[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
 	end,
 	["tsserver"] = function()
-		require("lspconfig").tsserver.setup(vim.tbl_extend("force", opts, {
-			on_attach = function(client, bufnr)
-				client.resolved_capabilities.document_formatting = false
-				on_attach(client, bufnr)
-			end,
+		require("lspconfig").tsserver.setup({
+			capabilities = capabilities,
 			root_dir = vim.loop.cwd,
-		}))
+			on_attach = on_attach,
+		})
 	end,
 	["sumneko_lua"] = function()
-		require("lspconfig").sumneko_lua.setup(vim.tbl_extend("force", opts, {
-			on_attach = function(client, bufnr)
-				client.resolved_capabilities.document_formatting = false
-				vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting_sync()" })
-				on_attach(client, bufnr)
-			end,
+		require("lspconfig").sumneko_lua.setup({
+			capabilities = capabilities,
 			settings = require("lua-dev").setup().settings,
-		}))
+			on_attach = on_attach,
+		})
 	end,
 	["eslint"] = function()
-		require("lspconfig").eslint.setup(vim.tbl_extend("force", opts, {
+		require("lspconfig").eslint.setup({
+			capabilities = capabilities,
 			on_attach = function(client, bufnr)
-				-- client.resolved_capabilities.document_formatting = true
-				vim.api.nvim_create_autocmd("BufWritePre", { command = "EslintFixAll" })
 				on_attach(client, bufnr)
+				client.server_capabilities.document_formatting = true
 			end,
-		}))
+		})
 	end,
 }
