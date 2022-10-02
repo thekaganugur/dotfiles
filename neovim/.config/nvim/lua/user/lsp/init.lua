@@ -9,7 +9,8 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, re
 vim.lsp.handlers["textDocument/signatureHelp"] =
 	vim.lsp.with(vim.lsp.handlers.signature_help, require("user.lsp.diagnostics").float)
 
-require("null-ls").setup({
+local null_ls = require("null-ls")
+null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.stylua,
