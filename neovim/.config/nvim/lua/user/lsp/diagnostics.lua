@@ -11,7 +11,7 @@ local function get_diagnostic_signs()
 	return signs
 end
 
-local diagnostic_config = {
+return {
 	virtual_text = false,
 	signs = {
 		active = get_diagnostic_signs(),
@@ -28,7 +28,3 @@ local diagnostic_config = {
 		prefix = "",
 	},
 }
-
-vim.diagnostic.config(diagnostic_config)
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, diagnostic_config.float)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, diagnostic_config.float)

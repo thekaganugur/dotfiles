@@ -1,6 +1,7 @@
--- *****************************
+local M = {}
+
 -- https://github.com/MunifTanjim/dotfiles/blob/160f61e/private_dot_config/nvim/lua/config/lsp/formatting.lua
-local function get_filter(client, bufnr)
+M.get_format_allowed = function(client, bufnr)
 	local denylist = {
 		clangd = true,
 		jsonls = true,
@@ -28,17 +29,5 @@ local function get_filter(client, bufnr)
 
 	return not denylist_for_filetype[client.name]
 end
--- *****************************
 
-local function on_attach(client, bufnr)
-	require("user.lsp.keymaps")(bufnr)
-
-	if client.server_capabilities.colorProvider then
-		require("document-color").buf_attach(bufnr)
-	end
-	if get_filter(client, bufnr) then
-		require("lsp-format").on_attach(client)
-	end
-end
-
-return on_attach
+return M

@@ -1,7 +1,5 @@
 require("luasnip.loaders.from_vscode").lazy_load()
 
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
 local lspkind = require("lspkind")
 lspkind.init({})
 
