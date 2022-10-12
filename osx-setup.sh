@@ -1,10 +1,17 @@
+echo "Installing packages via homebrew"
+brew bundle
+
 # Close any open System Preferences panes, to prevent them from overriding settings
 osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+	sudo -n true
+	sleep 60
+	kill -0 "$$" || exit
+done 2>/dev/null &
 
 # Delete all .DS_Store files so View Style can be changed properly
 # cd ~ && find . -type f -name '*.DS_Store' -ls -delete
