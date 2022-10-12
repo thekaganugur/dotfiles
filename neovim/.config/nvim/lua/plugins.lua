@@ -105,6 +105,7 @@ return require("packer").startup({
 			},
 		})
 
+		use("vifm/vifm.vim")
 		if packer_bootstrap then
 			require("packer").sync()
 		end

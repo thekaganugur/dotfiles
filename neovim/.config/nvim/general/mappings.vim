@@ -8,6 +8,7 @@ nnoremap <C-l> <C-w>l
 vnoremap < <gv
 vnoremap > >gv
 
-nnoremap <silent><leader>sv :source $MYVIMRC<CR>
-nnoremap <silent><leader>. :e $MYVIMRC<cr>
+nnoremap <silent><leader>sv :source $HOME/.config/nvim/init.vim<CR>
+nnoremap <silent><leader>. :e $HOME/.config/nvim/init.vim<CR>
 nnoremap <silent><leader>" :silent nohlsearch<CR>
+nnoremap <silent><leader>- :silent Vifm<CR>

@@ -58,3 +58,13 @@ alias l='ls -CF'
 
 alias v="nvim"
 alias vf="vifm"
+
+export NVM_DIR="$HOME/.nvm"
+
+# TODO: Add OSX check
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+# TODO: Add OSX check
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
