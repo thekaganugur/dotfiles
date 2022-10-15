@@ -1,4 +1,4 @@
-require("lua-dev").setup({})
+require("neodev").setup({})
 
 require("mason").setup()
 require("mason-lspconfig").setup()

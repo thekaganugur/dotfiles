@@ -22,6 +22,8 @@ lua require("document-color").setup({ mode = "background",  }) -- "background" |
 lua require'lir.git_status'.setup()
 lua require'gitsigns'.setup()
 lua require'nvim-surround'.setup()
+lua require'web-tools'.setup()
+
 
 "----------------
 au FileType qf call AdjustWindowHeight(4, 8)

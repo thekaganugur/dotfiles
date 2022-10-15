@@ -60,7 +60,7 @@ return require("packer").startup({
 			"neovim/nvim-lspconfig",
 		})
 		use("jose-elias-alvarez/null-ls.nvim")
-		use("folke/lua-dev.nvim")
+		use("folke/neodev.nvim")
 
 		use({
 			"hrsh7th/nvim-cmp",
@@ -105,6 +105,7 @@ return require("packer").startup({
 			},
 		})
 
+		use("ray-x/web-tools.nvim")
 		use("vifm/vifm.vim")
 		if packer_bootstrap then
 			require("packer").sync()
