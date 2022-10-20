@@ -21,6 +21,7 @@ return require("packer").startup({
 
 		---* Treesitter
 		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+		use("nvim-treesitter/playground")
 		use("nvim-treesitter/nvim-treesitter-textobjects") -- Additional textobjects for treesitter
 		use({
 			"JoosepAlviste/nvim-ts-context-commentstring",

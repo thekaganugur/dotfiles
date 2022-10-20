@@ -9,6 +9,14 @@ return {
 		require("lspconfig").tsserver.setup({
 			capabilities = capabilities,
 			root_dir = vim.loop.cwd,
+			init_options = {
+				plugins = {
+					{
+						name = "typescript-lit-html-plugin",
+						location = vim.env.NODE_LIB,
+					},
+				},
+			},
 		})
 	end,
 	["eslint"] = function()
