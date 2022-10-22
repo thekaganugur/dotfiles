@@ -59,6 +59,8 @@ return require("packer").startup({
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"neovim/nvim-lspconfig",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"jayp0521/mason-null-ls.nvim",
 		})
 		use("jose-elias-alvarez/null-ls.nvim")
 		use("folke/neodev.nvim")
@@ -106,7 +108,6 @@ return require("packer").startup({
 			},
 		})
 
-		use("ray-x/web-tools.nvim")
 		use("vifm/vifm.vim")
 		if packer_bootstrap then
 			require("packer").sync()

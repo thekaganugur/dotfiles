@@ -1,11 +1,11 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local M = {}
 
-return {
+M.lsp = {
 	function(server_name)
 		require("lspconfig")[server_name].setup({ capabilities = capabilities })
 	end,
-
-	["tsserver"] = function()
+	tsserver = function()
 		require("lspconfig").tsserver.setup({
 			capabilities = capabilities,
 			root_dir = vim.loop.cwd,
@@ -19,7 +19,7 @@ return {
 			},
 		})
 	end,
-	["eslint"] = function()
+	eslint = function()
 		require("lspconfig").eslint.setup({
 			capabilities = capabilities,
 			on_attach = function(client)
@@ -28,3 +28,18 @@ return {
 		})
 	end,
 }
+
+M.null_ls = {
+	function(server_name)
+		print("-- There is not configured server for null-ls --")
+		print(server_name)
+	end,
+	stylua = function()
+		require("null-ls").register(require("null-ls").builtins.formatting.stylua)
+	end,
+	prettierd = function()
+		require("null-ls").register(require("null-ls").builtins.formatting.prettierd)
+	end,
+}
+
+return M
