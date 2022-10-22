@@ -83,7 +83,6 @@ return require("packer").startup({
 		use("RRethy/vim-illuminate")
 
 		use("lukas-reineke/lsp-format.nvim")
-		use("ray-x/lsp_signature.nvim")
 		use("stevearc/dressing.nvim")
 
 		use("kylechui/nvim-surround")

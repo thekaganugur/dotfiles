@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/lsp-format.nvim",
     url = "https://github.com/lukas-reineke/lsp-format.nvim"
   },
-  ["lsp_signature.nvim"] = {
-    loaded = true,
-    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
-    url = "https://github.com/ray-x/lsp_signature.nvim"
-  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -173,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason-null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/mason-null-ls.nvim",
+    url = "https://github.com/jayp0521/mason-null-ls.nvim"
   },
   ["mason-tool-installer.nvim"] = {
     loaded = true,
@@ -313,11 +313,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/vim-startuptime",
     url = "https://github.com/dstein64/vim-startuptime"
-  },
-  ["web-tools.nvim"] = {
-    loaded = true,
-    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/web-tools.nvim",
-    url = "https://github.com/ray-x/web-tools.nvim"
   },
   ["which-key.nvim"] = {
     loaded = true,

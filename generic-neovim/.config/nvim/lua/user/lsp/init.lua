@@ -25,6 +25,9 @@ vim.diagnostic.config(require("user.lsp.diagnostics"))
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, require("user.lsp.diagnostics").float)
 vim.lsp.handlers["textDocument/signatureHelp"] =
 	vim.lsp.with(vim.lsp.handlers.signature_help, require("user.lsp.diagnostics").float)
+vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", {
+	link = "DiagnosticInfo",
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)

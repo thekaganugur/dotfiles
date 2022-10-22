@@ -12,7 +12,6 @@ lua require'user.dressing'
 lua require'user.autocommands'
 lua require'user.autopairs'
 lua require'user.illuminate'
-lua require'user.signature'
 lua require'user.comment'
 lua require'user.windows'
 
