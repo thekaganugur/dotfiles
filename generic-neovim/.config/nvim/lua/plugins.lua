@@ -17,35 +17,32 @@ return require("packer").startup({
 	function(use)
 		use("wbthomason/packer.nvim")
 
-		use("sainnhe/everforest")
+		use("sainnhe/everforest") -- Colorscheme
+		use("kyazdani42/nvim-web-devicons") -- Icon suport
+		use("hoob3rt/lualine.nvim") -- Status bar
 
 		---* Treesitter
-		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-		use("nvim-treesitter/playground")
-		use("nvim-treesitter/nvim-treesitter-textobjects") -- Additional textobjects for treesitter
 		use({
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-treesitter/playground",
+			"nvim-treesitter/nvim-treesitter-textobjects",
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			"windwp/nvim-ts-autotag",
+			-- "windwp/nvim-ts-autotag",
 			"RRethy/nvim-treesitter-endwise",
+			run = ":TSUpdate",
 		})
-		---* Treesitter
 
-		use({ "hoob3rt/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" }) -- Status bar
+		use({ "bennypowers/nvim-ts-autotag", branch = "template-tags" })
+		---* Treesitter
 
 		---* Fuzzy Find
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
-		})
+		use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 		---* Fuzzy Find
 
 		---* File explorer
-		use({
-			"tamago324/lir.nvim",
-			requires = { "kyazdani42/nvim-web-devicons", "nvim-lua/plenary.nvim" },
-		})
-		use("tamago324/lir-git-status.nvim")
+		use({ "tamago324/lir.nvim", "tamago324/lir-git-status.nvim", requires = { "nvim-lua/plenary.nvim" } })
+		use("vifm/vifm.vim")
 		---* File explorer
 
 		---* Git
@@ -54,16 +51,16 @@ return require("packer").startup({
 		---* Git
 
 		use("folke/which-key.nvim")
+		use("folke/neodev.nvim")
 
 		use({
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"neovim/nvim-lspconfig",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
 			"jayp0521/mason-null-ls.nvim",
 		})
-		use("jose-elias-alvarez/null-ls.nvim")
-		use("folke/neodev.nvim")
 
 		use({
 			"hrsh7th/nvim-cmp",
@@ -71,12 +68,10 @@ return require("packer").startup({
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
+			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets",
+			"onsails/lspkind.nvim", -- vscode-like icon for lsp completion items
 		})
-
-		-- Snippets
-		use("L3MON4D3/LuaSnip")
-		use("rafamadriz/friendly-snippets")
-		use("onsails/lspkind.nvim")
 
 		use("windwp/nvim-autopairs")
 
@@ -90,12 +85,11 @@ return require("packer").startup({
 		use("numToStr/Comment.nvim")
 		-- use("f-person/auto-dark-mode.nvim")
 		use("norcalli/nvim-colorizer.lua")
+		use("mrshmllow/document-color.nvim")
 
 		use("j-hui/fidget.nvim")
-		use("kevinhwang91/nvim-bqf")
-		use("TamaMcGlinn/quickfixdd")
 
-		use("mrshmllow/document-color.nvim")
+		use({ "kevinhwang91/nvim-bqf", "TamaMcGlinn/quickfixdd" })
 
 		use("dstein64/vim-startuptime")
 
@@ -107,14 +101,15 @@ return require("packer").startup({
 			},
 		})
 
-		use("vifm/vifm.vim")
+		-- use({
+		-- 	"vuki656/package-info.nvim",
+		-- 	requires = "MunifTanjim/nui.nvim",
+		-- 	config = function()
+		-- 		require("package-info").setup()
+		-- 	end,
+		-- })
 		if packer_bootstrap then
 			require("packer").sync()
 		end
 	end,
-	-- config = {
-	-- 	display = {
-	-- 		open_fn = require("packer.util").float,
-	-- 	},
-	-- },
 })

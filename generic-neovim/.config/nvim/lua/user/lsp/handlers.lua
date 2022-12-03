@@ -15,6 +15,10 @@ M.lsp = {
 						name = "typescript-lit-html-plugin",
 						location = vim.env.NODE_LIB,
 					},
+					{
+						name = "typescript-styled-plugin",
+						location = vim.env.NODE_LIB,
+					},
 				},
 			},
 		})
@@ -25,6 +29,12 @@ M.lsp = {
 			on_attach = function(client)
 				client.server_capabilities.document_formatting = true
 			end,
+			handlers = {
+				["eslint/noLibrary"] = function()
+					vim.notify_once("[lspconfig] Unable to find ESLint library.", vim.log.levels.INFO)
+					return {}
+				end,
+			},
 		})
 	end,
 }

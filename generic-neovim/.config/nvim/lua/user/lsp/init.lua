@@ -7,6 +7,7 @@ local servers = {
 	"typescript-language-server",
 	"html-lsp",
 	"css-lsp",
+	"eslint-lsp",
 	"prettierd",
 	"json-lsp",
 }

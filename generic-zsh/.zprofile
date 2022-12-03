@@ -8,3 +8,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # TODO MACOS CHECK
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# export export NODE_OPTIONS=--openssl-legacy-provider
