@@ -70,3 +70,4 @@ source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-se
 
 export NVM_DIR="$HOME/.nvm"
 export NODE_LIB=$(npm list -g | head -1)
+export MYVIMRC="/$HOME/.config/nvim/init.vim"

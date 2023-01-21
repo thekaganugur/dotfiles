@@ -1,5 +1,11 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local M = {}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
 
 M.lsp = {
 	function(server_name)
@@ -40,10 +46,6 @@ M.lsp = {
 }
 
 M.null_ls = {
-	function(server_name)
-		print("-- There is not configured server for null-ls --")
-		print(server_name)
-	end,
 	stylua = function()
 		require("null-ls").register(require("null-ls").builtins.formatting.stylua)
 	end,

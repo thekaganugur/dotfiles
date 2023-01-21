@@ -4,8 +4,8 @@ require("windows").setup({
 	},
 	ignore = {
 		buftype = { "quickfix" },
-		filetype = { "NvimTree", "neo-tree", "undotree", "gundo" },
+		filetype = { "NvimTree", "neo-tree", "undotree", "gundo", "lir" },
 	},
 })
 
-vim.keymap.set("n", "<C-w>z", "<Cmd>WindowsMaximize<CR>")
+vim.keymap.set("n", "<C-w>z", "<Cmd>WindowsMaximize<CR>", { desc = "Maximize Window" })

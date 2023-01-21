@@ -4,7 +4,9 @@ local clipboard_actions = require("lir.clipboard.actions")
 
 require("lir").setup({
 	show_hidden_files = true,
-	devicons_enable = true,
+	devicons = {
+		enable = true,
+	},
 	mappings = {
 		["<Enter>"] = actions.edit,
 		["<C-s>"] = actions.split,
@@ -30,4 +32,4 @@ require("lir").setup({
 })
 
 -- dirvish like binding '-' opens lir
-vim.api.nvim_set_keymap("n", "-", [[<Cmd>execute 'e ' .. expand('%:p:h')<CR>]], { noremap = true })
+vim.keymap.set("n", "-", [[<Cmd>execute 'e ' .. expand('%:p:h')<CR>]], { desc = "Open Lir" })

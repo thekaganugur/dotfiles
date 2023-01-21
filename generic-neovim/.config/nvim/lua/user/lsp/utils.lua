@@ -30,4 +30,16 @@ M.get_format_allowed = function(client, bufnr)
 	return not denylist_for_filetype[client.name]
 end
 
+M.servers = {
+	"lua-language-server",
+	"stylua",
+
+	"typescript-language-server",
+	"html-lsp",
+	"css-lsp",
+	"eslint-lsp",
+	"prettierd",
+	"json-lsp",
+}
+
 return M
