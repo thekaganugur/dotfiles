@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["debugprint.nvim"] = {
+    loaded = true,
+    path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/debugprint.nvim",
+    url = "https://github.com/andrewferrier/debugprint.nvim"
+  },
   ["document-color.nvim"] = {
     loaded = true,
     path = "/Users/kgnugur/.local/share/nvim/site/pack/packer/start/document-color.nvim",

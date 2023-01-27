@@ -95,6 +95,8 @@ return require("packer").startup({
 			},
 		})
 
+		use("andrewferrier/debugprint.nvim")
+
 		if packer_bootstrap then
 			require("packer").sync()
 		end

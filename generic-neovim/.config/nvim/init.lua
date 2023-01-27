@@ -22,6 +22,10 @@ require("lir.git_status").setup()
 require("gitsigns").setup()
 require("nvim-surround").setup()
 require("gitlinker").setup()
+require("debugprint").setup({
+	print_tag = "DEBUG",
+	display_counter = false,
+})
 
 --------------
 -- au FileType qf call AdjustWindowHeight(4, 8)
