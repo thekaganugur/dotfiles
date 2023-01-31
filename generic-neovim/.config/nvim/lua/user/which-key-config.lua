@@ -31,7 +31,7 @@ vim.keymap.set("v", "<", "<gv", { desc = "Better visual indent" })
 vim.keymap.set("v", "p", '"_dP', { desc = "Paste over currently selected text without yanking it" })
 
 vim.keymap.set("n", "<leader>-", "<cmd>Vifm<cr>", { desc = "Vifm" })
-vim.keymap.set("n", "<leader>.", "<cmd>e $HOME/.config/nvim/init.vim<cr>", { desc = "Open init" })
+vim.keymap.set("n", "<leader>.", "<cmd>e $HOME/.config/nvim/init.lua<cr>", { desc = "Open init" })
 vim.keymap.set("n", '<leader>"', "<cmd>nohlsearch<cr>", { desc = "No search" })
 
 require("which-key").register({ s = "+[S]earch", g = g, l = "+[L]SP" }, { prefix = "<leader>" })
