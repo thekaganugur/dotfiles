@@ -1,96 +1,88 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-    vim.cmd([[packadd packer.nvim]])
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
-local packer_bootstrap = ensure_packer()
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd("autocmd BufWritePost plugins.lua PackerCompile") -- Auto compile when there are changes in plugins.lua
-vim.cmd([[packadd packer.nvim]])
+require("lazy").setup({
+  "wbthomason/packer.nvim",
 
-return require("packer").startup({
-  function(use)
-    use("wbthomason/packer.nvim")
+  "sainnhe/everforest", -- Colorscheme
+  "folke/neodev.nvim",
+  "kyazdani42/nvim-web-devicons", -- Icon suport, prerequirement
+  "nvim-lua/plenary.nvim", -- Util, prerequirement
+  "hoob3rt/lualine.nvim", -- Status bar
 
-    use("sainnhe/everforest") -- Colorscheme
-    use("folke/neodev.nvim")
-    use("kyazdani42/nvim-web-devicons") -- Icon suport, prerequirement
-    use("nvim-lua/plenary.nvim") -- Util, prerequirement
-    use("hoob3rt/lualine.nvim") -- Status bar
+  -- Treesitter
+  {
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    "nvim-treesitter/playground",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "windwp/nvim-ts-autotag",
+    -- { "bennypowers/nvim-ts-autotag", branch = "template-tags" }, -- https://github.com/windwp/nvim-ts-autotag/pull/78
+    "windwp/nvim-autopairs",
+    "RRethy/nvim-treesitter-endwise",
+  },
 
-    -- Treesitter
-    use({
-      { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
-      "nvim-treesitter/playground",
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "windwp/nvim-ts-autotag",
-      -- { "bennypowers/nvim-ts-autotag", branch = "template-tags" }, -- https://github.com/windwp/nvim-ts-autotag/pull/78
-      "windwp/nvim-autopairs",
-      "RRethy/nvim-treesitter-endwise",
-    })
+  -- Fuzzy Find
+  {
+    "nvim-telescope/telescope.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  },
 
-    -- Fuzzy Find
-    use({
-      "nvim-telescope/telescope.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-    })
+  -- File explorer
+  {
+    { "tamago324/lir.nvim", commit = "248f6b1da1f597e51513dd970672c7e57253f92a" },
+    "tamago324/lir-git-status.nvim",
+    "vifm/vifm.vim",
+  },
 
-    -- File explorer
-    use({
-      { "tamago324/lir.nvim", commit = "248f6b1da1f597e51513dd970672c7e57253f92a" },
-      "tamago324/lir-git-status.nvim",
-      "vifm/vifm.vim",
-    })
+  -- Git
+  { "tpope/vim-fugitive",    "lewis6991/gitsigns.nvim",              "ruifm/gitlinker.nvim" },
 
-    -- Git
-    use({ "tpope/vim-fugitive", "lewis6991/gitsigns.nvim", "ruifm/gitlinker.nvim" })
+  {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    "jayp0521/mason-null-ls.nvim",
+  },
 
-    use({
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-      "jayp0521/mason-null-ls.nvim",
-    })
+  {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
+    "onsails/lspkind.nvim", -- vscode-like icon for lsp completion items
 
-    use({
-      "hrsh7th/nvim-cmp",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
-      "onsails/lspkind.nvim", -- vscode-like icon for lsp completion items
+    "hrsh7th/cmp-cmdline",
+    "petertriho/cmp-git",
+  },
 
-      "hrsh7th/cmp-cmdline",
-      "petertriho/cmp-git",
-    })
-
-    use("lukas-reineke/lsp-format.nvim")
-    use("stevearc/dressing.nvim")
-    use("kylechui/nvim-surround")
-    use("numToStr/Comment.nvim")
-    use("NvChad/nvim-colorizer.lua")
-    use("RRethy/vim-illuminate")
-    use("j-hui/fidget.nvim")
-    use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
-    use("folke/which-key.nvim")
-    use({ "kevinhwang91/nvim-bqf", "TamaMcGlinn/quickfixdd" })
-    use({ "utilyre/barbecue.nvim", requires = { "SmiteshP/nvim-navic" }, branch = "fix/E36" })
-    use("dstein64/vim-startuptime")
-    use({ "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" } })
-    use("andrewferrier/debugprint.nvim")
-
-    if packer_bootstrap then
-      require("packer").sync()
-    end
-  end,
+  "lukas-reineke/lsp-format.nvim",
+  "stevearc/dressing.nvim",
+  "kylechui/nvim-surround",
+  "numToStr/Comment.nvim",
+  "NvChad/nvim-colorizer.lua",
+  "RRethy/vim-illuminate",
+  "j-hui/fidget.nvim",
+  { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
+  "folke/which-key.nvim",
+  { "kevinhwang91/nvim-bqf", "TamaMcGlinn/quickfixdd" },
+  { "utilyre/barbecue.nvim", dependencies = { "SmiteshP/nvim-navic" }, branch = "fix/E36" },
+  "dstein64/vim-startuptime",
+  { "anuvyklack/windows.nvim", dependencies = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" } },
+  "andrewferrier/debugprint.nvim",
 })
