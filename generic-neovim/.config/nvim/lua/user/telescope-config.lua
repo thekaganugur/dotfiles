@@ -15,7 +15,6 @@ require("telescope").setup({
 			initial_mode = "normal",
 		},
 	},
-
 	extensions = {
 		fzf = {
 			fuzzy = true,
