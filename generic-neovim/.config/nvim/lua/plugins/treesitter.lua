@@ -12,7 +12,6 @@ return {
 	},
 	opts = {
 		ensure_installed = {
-			"help",
 			"html",
 			"javascript",
 			"json",
