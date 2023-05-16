@@ -1,6 +1,7 @@
 hs.loadSpoon("SpoonInstall")
 
 hs.window.animationDuration = 0
+hs.window.setFrameCorrectness = false
 
 hyper = { "cmd", "alt", "ctrl" }
 shift_hyper = { "cmd", "alt", "ctrl", "shift" }
@@ -19,7 +20,7 @@ hs.hotkey.bind(hyper, "0", hs.reload, hs.alert.show("Config loaded"))
 local hyper_apps = {
 	E = "Finder",
 	B = "Google Chrome",
-	T = "iTerm",
+	T = "Wezterm",
 	M = "Mail",
 	A = "Calendar",
 	W = "WhatsApp",

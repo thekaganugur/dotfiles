@@ -1,31 +1,17 @@
-require("plugins")
-require("user.settings")
-require("user.treesitter-config")
-require("user.lualine-config")
-require("user.lir-config")
-require("user.telescope-config")
-require("user.which-key-config")
-require("user.lsp")
-require("user.cmp")
-require("user.dressing")
-require("user.autocommands")
-require("user.autopairs")
-require("user.illuminate")
-require("user.comment")
-require("user.windows")
+require("config.options")
+require("config.autocmds")
+require("config.keymaps")
 
-require("nvim-web-devicons").setup({ default = true })
-require("colorizer").setup({ user_default_options = { tailwind = true } })
-require("bqf").setup({ preview = { auto_preview = true } })
-require("lir.git_status").setup()
-require("gitsigns").setup()
-require("nvim-surround").setup()
-require("gitlinker").setup()
-require("debugprint").setup({
-  print_tag = "DEBUG",
-  display_counter = false,
-})
-require("barbecue").setup({
-  show_dirname = false,
-  kinds = require("lspkind").symbol_map,
-})
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
