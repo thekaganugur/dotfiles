@@ -7,5 +7,12 @@ My neovim config for frontend development.
 [Stow](https://www.gnu.org/software/stow/) is supported.
 
 ```bash
-stow config-nvim
+stow generic-*
+
+# for osx
+stow osx-*
+./osx-setup.sh
+
+# for linux
+stow linux-*
 ```
