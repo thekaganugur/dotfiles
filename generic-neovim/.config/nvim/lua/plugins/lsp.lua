@@ -66,7 +66,32 @@ return {
 	},
 
 	-- cmdline tools and lsp servers
-	{ "williamboman/mason.nvim", cmd = "Mason", config = true },
+	{
+		"williamboman/mason.nvim",
+		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+		config = true,
+	},
+
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = {
+			ensure_installed = {
+				"bash-language-server",
+				"beautysh",
+				"css-lsp",
+				"eslint-lsp",
+				"html-lsp",
+				"json-lsp",
+				"lua-language-server",
+				"marksman",
+				"prettierd",
+				"stylua",
+				"tailwindcss-language-server",
+				"typescript-language-server",
+				"yaml-language-server",
+			},
+		},
+	},
 
 	-- async formatting on save
 	{
