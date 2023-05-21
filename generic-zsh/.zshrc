@@ -60,10 +60,6 @@ alias v="nvim"
 alias vf="vifm"
 
 
-export NODE_LIB=$(npm list -g | head -1)
-export MYVIMRC="/$HOME/.config/nvim/init.vim"
-
-
 if [[ $OSTYPE == 'darwin'* ]]; then
     source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
@@ -78,3 +74,7 @@ if [[ $OSTYPE == 'linux'* ]]; then
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+
+export NODE_LIB=$(npm list -g | head -1)
+export MYVIMRC="/$HOME/.config/nvim/init.vim"
