@@ -66,7 +66,7 @@ return {
 						ellipsis_char = "...",
 					}),
 				},
-				-- experimental = { ghost_text = true },
+				experimental = { ghost_text = true },
 			}
 		end,
 		config = function(_, opts)
@@ -88,13 +88,7 @@ return {
 	},
 
 	-- auto pairs
-	{
-		"echasnovski/mini.pairs",
-		event = "VeryLazy",
-		config = function(_, opts)
-			require("mini.pairs").setup(opts)
-		end,
-	},
+	{ "echasnovski/mini.pairs", event = "VeryLazy", config = true },
 
 	-- comments
 	{
@@ -108,16 +102,9 @@ return {
 				end,
 			},
 		},
-		config = function(_, opts)
-			require("mini.comment").setup(opts)
-		end,
 	},
 
-	{
-		"kylechui/nvim-surround",
-		event = "VeryLazy",
-		config = true,
-	},
+	{ "kylechui/nvim-surround", event = "VeryLazy", config = true },
 
 	{ "ellisonleao/glow.nvim", opts = { border = "rounded" }, cmd = "Glow" },
 }

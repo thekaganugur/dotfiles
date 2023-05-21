@@ -13,8 +13,10 @@ return {
 	{
 		"utilyre/barbecue.nvim",
 		event = { "BufReadPost", "BufNewFile" },
-		dependencies = { "SmiteshP/nvim-navic" },
-		opts = { show_dirname = false, kinds = require("lspkind").symbol_map },
+		dependencies = { "SmiteshP/nvim-navic", "onsails/lspkind.nvim" },
+		opts = function()
+			return { show_dirname = false, kinds = require("lspkind").symbol_map }
+		end,
 	},
 
 	{
