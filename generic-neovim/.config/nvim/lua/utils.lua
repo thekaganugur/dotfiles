@@ -37,4 +37,13 @@ M.filter_servers = function(servers, exclude)
 	return filtered_servers
 end
 
+M.is_wsl = (function()
+	local output = vim.fn.systemlist("uname -r")
+	return not not string.find(output[1] or "", "WSL")
+end)()
+
+M.is_mac = vim.fn.has("macunix") == 1
+
+M.is_linux = not M.is_wsl and not M.is_mac
+
 return M

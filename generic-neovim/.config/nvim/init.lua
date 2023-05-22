@@ -16,8 +16,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
-vim.opt.background = "light"
-vim.cmd([[
+if require("utils").is_wsl then
+	vim.opt.background = "light"
+	vim.cmd([[
     let g:clipboard = {
                 \   'name': 'WslClipboard',
                 \   'copy': {
@@ -31,3 +32,4 @@ vim.cmd([[
                 \   'cache_enabled': 0,
                 \ }
 ]])
+end

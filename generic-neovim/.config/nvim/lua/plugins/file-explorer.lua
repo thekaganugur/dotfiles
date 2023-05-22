@@ -6,7 +6,6 @@ return {
 			vim.keymap.set("n", "<leader>-", "<cmd>Vifm<cr>", { desc = "Vifm" })
 		end,
 	},
-
 	{
 		"tamago324/lir.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "tamago324/lir-git-status.nvim" },
@@ -52,4 +51,16 @@ return {
 			vim.g.loaded_netrwPlugin = 1
 		end,
 	},
+
+	-- {
+	-- 	"stevearc/oil.nvim",
+	-- 	opts = {},
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- 	init = function()
+	-- 		-- Disable netrw
+	-- 		vim.g.loaded_netrw = 1
+	-- 		vim.g.loaded_netrwPlugin = 1
+	-- 		vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+	-- 	end,
+	-- },
 }
