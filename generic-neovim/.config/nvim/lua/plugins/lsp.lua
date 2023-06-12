@@ -28,15 +28,24 @@ return {
 						end,
 					},
 				},
+				tailwindcss = {
+					settings = {
+						tailwindCSS = {
+							experimental = { classRegex = { { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" } } },
+						},
+					},
+				},
 			},
 		},
 		config = function(_, opts)
-			require("lspconfig").tsserver.setup(opts.servers.tsserver)
-			require("lspconfig").eslint.setup(opts.servers.eslint)
+			local configuredServers = {}
+			for server, _ in pairs(opts.servers) do
+				table.insert(configuredServers, server)
+				require("lspconfig")[server].setup(opts.servers[server])
+			end
 
 			local installed_servers = require("mason-lspconfig").get_installed_servers()
-			installed_servers = require("utils").filter_servers(installed_servers, { "eslint", "tsserver" })
-			for _, server in ipairs(installed_servers) do
+			for _, server in ipairs(require("utils").filter_servers(installed_servers, configuredServers)) do
 				require("lspconfig")[server].setup({})
 			end
 		end,
