@@ -6,17 +6,22 @@ return {
 			{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			{
+				"pmizio/typescript-tools.nvim",
+				dependencies = { "nvim-lua/plenary.nvim" },
+				opts = {},
+			},
 		},
 		opts = {
 			servers = {
-				tsserver = {
-					init_options = {
-						plugins = {
-							{ name = "typescript-lit-html-plugin", location = vim.env.NODE_LIB },
-							{ name = "typescript-styled-plugin", location = vim.env.NODE_LIB },
-						},
-					},
-				},
+				-- tsserver = {
+				-- 	init_options = {
+				-- 		plugins = {
+				-- 			{ name = "typescript-lit-html-plugin", location = vim.env.NODE_LIB },
+				-- 			{ name = "typescript-styled-plugin", location = vim.env.NODE_LIB },
+				-- 		},
+				-- 	},
+				-- },
 				eslint = {
 					on_attach = function(_, bufnr)
 						vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr, command = "EslintFixAll" })
@@ -67,7 +72,8 @@ return {
 			return {
 				sources = {
 					require("null-ls").builtins.formatting.stylua,
-					require("null-ls").builtins.formatting.prettierd,
+					-- require("null-ls").builtins.formatting.prettierd,
+					require("null-ls").builtins.formatting.prettier,
 					require("null-ls").builtins.formatting.beautysh,
 				},
 			}
@@ -96,7 +102,7 @@ return {
 				"prettierd",
 				"stylua",
 				"tailwindcss-language-server",
-				"typescript-language-server",
+				-- "typescript-language-server",
 				"yaml-language-server",
 			},
 		},

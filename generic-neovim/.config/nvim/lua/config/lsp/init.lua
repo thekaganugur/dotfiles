@@ -93,6 +93,7 @@ end
 M.formatting_deny_list = {
 	clients = {
 		tsserver = true,
+		["typescript-tools"] = true,
 		jsonls = true,
 		lua_ls = true,
 	},
