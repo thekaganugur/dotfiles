@@ -87,7 +87,12 @@ return {
 
 	{ "TamaMcGlinn/quickfixdd", event = "VeryLazy" },
 
-	{ "j-hui/fidget.nvim", opts = { sources = { ["null-ls"] = { ignore = true } } } },
+	{
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+		opts = {},
+		-- opts = { sources = { ["null-ls"] = { ignore = true } } }
+	},
 
 	{
 		"kevinhwang91/nvim-ufo",

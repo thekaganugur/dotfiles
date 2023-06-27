@@ -6,22 +6,11 @@ return {
 			{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			{
-				"pmizio/typescript-tools.nvim",
-				dependencies = { "nvim-lua/plenary.nvim" },
-				opts = {},
-			},
+			"hrsh7th/cmp-nvim-lsp",
+			{ "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
 		},
 		opts = {
 			servers = {
-				-- tsserver = {
-				-- 	init_options = {
-				-- 		plugins = {
-				-- 			{ name = "typescript-lit-html-plugin", location = vim.env.NODE_LIB },
-				-- 			{ name = "typescript-styled-plugin", location = vim.env.NODE_LIB },
-				-- 		},
-				-- 	},
-				-- },
 				eslint = {
 					on_attach = function(_, bufnr)
 						vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr, command = "EslintFixAll" })
@@ -53,6 +42,11 @@ return {
 			for _, server in ipairs(require("utils").filter_servers(installed_servers, configuredServers)) do
 				require("lspconfig")[server].setup({})
 			end
+
+			require("lspconfig").util.default_config =
+				vim.tbl_deep_extend("force", require("lspconfig").util.default_config, {
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				})
 		end,
 		init = function()
 			require("utils").on_attach(function(client, buffer)
@@ -102,7 +96,6 @@ return {
 				"prettierd",
 				"stylua",
 				"tailwindcss-language-server",
-				-- "typescript-language-server",
 				"yaml-language-server",
 			},
 		},
