@@ -27,7 +27,7 @@ return {
 		auto_install = true,
 		highlight = { enable = true },
 		indent = { enable = true },
-		autotag = { enable = true },
+		autotag = { enable = true, enable_close_on_slash = false, enable_rename = true },
 		endwise = { enable = true },
 		context_commentstring = { enable = true, enable_autocmd = false },
 		textobjects = {

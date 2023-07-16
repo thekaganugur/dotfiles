@@ -87,18 +87,13 @@ return {
 
 	{ "TamaMcGlinn/quickfixdd", event = "VeryLazy" },
 
-	{
-		"j-hui/fidget.nvim",
-		tag = "legacy",
-		opts = {},
-		-- opts = { sources = { ["null-ls"] = { ignore = true } } }
-	},
+	{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
 	{
 		"kevinhwang91/nvim-ufo",
 		event = "VeryLazy",
 		dependencies = "kevinhwang91/promise-async",
-		config = true,
+		opts = {},
 		init = function()
 			vim.opt.foldlevel = 99
 			vim.opt.foldlevelstart = 99
@@ -111,6 +106,6 @@ return {
 		"ruifm/gitlinker.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = "nvim-lua/plenary.nvim",
-		config = true,
+		opts = {},
 	},
 }
