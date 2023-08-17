@@ -66,7 +66,7 @@ return {
 			return {
 				sources = {
 					require("null-ls").builtins.formatting.stylua,
-					require("null-ls").builtins.formatting.prettierd,
+					require("null-ls").builtins.formatting.prettier,
 					require("null-ls").builtins.formatting.beautysh,
 				},
 			}
@@ -92,7 +92,7 @@ return {
 				"json-lsp",
 				"lua-language-server",
 				"marksman",
-				"prettierd",
+				"prettier",
 				"stylua",
 				"tailwindcss-language-server",
 				"yaml-language-server",
