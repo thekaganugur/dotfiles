@@ -108,4 +108,11 @@ return {
 	{ "kylechui/nvim-surround", event = "VeryLazy", config = true },
 
 	{ "ellisonleao/glow.nvim", opts = { border = "rounded" }, cmd = "Glow" },
+
+	{
+		"axelvc/template-string.nvim",
+		opts = {
+			remove_template_string = true, -- remove backticks when there are no template strings
+		},
+	},
 }
