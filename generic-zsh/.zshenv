@@ -1,10 +1,4 @@
-# XDG - set defaults as they may not be set
-# See https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-# and https://wiki.archlinux.org/title/XDG_Base_Directory#Support
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-
+skip_global_compinit=1
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
@@ -13,18 +7,4 @@ fi
 
 if [ -d "$HOME/.local/share/bob/nvim-bin" ] ; then
     PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
-fi
-
-if [[ $OSTYPE == 'darwin'* ]]; then
-    source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-fi
-
-if [[ $OSTYPE == 'linux'* ]]; then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
