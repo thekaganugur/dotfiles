@@ -58,22 +58,3 @@ alias l='ls -CF'
 
 alias v="nvim"
 alias vf="vifm"
-
-
-if [[ $OSTYPE == 'darwin'* ]]; then
-    source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-fi
-
-
-if [[ $OSTYPE == 'linux'* ]]; then
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-
-
-export MYVIMRC="/$HOME/.config/nvim/init.vim"
