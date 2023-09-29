@@ -11,16 +11,6 @@ function M.on_attach(on_attach)
 	})
 end
 
--- https://github.com/MunifTanjim/dotfiles/blob/160f61e/private_dot_config/nvim/lua/config/lsp/formatting.lua
-M.can_format_with_client = function(client, buffer)
-	local formatting_deny_list = require("config.lsp").formatting_deny_list
-	local is_denied_by_client = formatting_deny_list.clients[client.name] or false
-	local is_denied_by_filetype = (formatting_deny_list.filetypes[vim.bo[buffer or 0].filetype] or {})[client.name]
-		or false
-	local is_client_denied = is_denied_by_client or is_denied_by_filetype
-	return not is_client_denied
-end
-
 M.has_words_before = function()
 	unpack = unpack or table.unpack
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))

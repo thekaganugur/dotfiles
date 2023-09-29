@@ -84,24 +84,4 @@ M.lsp_keymappings = function(buffer)
 	)
 end
 
-M.lsp_formatting = function(client, buffer)
-	if require("utils").can_format_with_client(client, buffer) then
-		require("lsp-format").on_attach(client)
-	end
-end
-
-M.formatting_deny_list = {
-	clients = {
-		tsserver = true,
-		["typescript-tools"] = true,
-		jsonls = true,
-		lua_ls = true,
-	},
-	filetypes = {
-		markdown = {
-			html = true,
-		},
-	},
-}
-
 return M

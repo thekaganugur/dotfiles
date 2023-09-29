@@ -49,28 +49,47 @@ return {
 				})
 		end,
 		init = function()
-			require("utils").on_attach(function(client, buffer)
-				require("config.lsp").lsp_formatting(client, buffer)
+			require("utils").on_attach(function(_client, buffer)
 				require("config.lsp").lsp_keymappings(buffer)
 				require("config.lsp").lsp_handlers()
 			end)
 		end,
 	},
 
-	-- formatters
 	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "williamboman/mason.nvim" },
-		opts = function()
-			return {
-				sources = {
-					require("null-ls").builtins.formatting.stylua,
-					require("null-ls").builtins.formatting.prettier,
-					require("null-ls").builtins.formatting.beautysh,
-				},
-			}
+		"stevearc/conform.nvim",
+		init = function()
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*",
+				callback = function(args)
+					require("conform").format({ bufnr = args.buf })
+				end,
+			})
 		end,
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
+				sh = { "beautysh" },
+				zsh = { "beautysh" },
+
+				javascript = { { "prettierd", "prettier" } },
+				javascriptreact = { { "prettierd", "prettier" } },
+				typescript = { { "prettierd", "prettier" } },
+				typescriptreact = { { "prettierd", "prettier" } },
+				vue = { { "prettierd", "prettier" } },
+				css = { { "prettierd", "prettier" } },
+				scss = { { "prettierd", "prettier" } },
+				less = { { "prettierd", "prettier" } },
+				html = { { "prettierd", "prettier" } },
+				json = { { "prettierd", "prettier" } },
+				jsonc = { { "prettierd", "prettier" } },
+				yaml = { { "prettierd", "prettier" } },
+				markdown = { { "prettierd", "prettier" } },
+				["markdown.mdx"] = { { "prettierd", "prettier" } },
+				graphql = { { "prettierd", "prettier" } },
+				handlebars = { { "prettierd", "prettier" } },
+			},
+		},
 	},
 
 	-- cmdline tools and lsp servers
@@ -92,22 +111,11 @@ return {
 				"json-lsp",
 				"lua-language-server",
 				"marksman",
-				"prettier",
+				"prettierd",
 				"stylua",
 				"tailwindcss-language-server",
 				"yaml-language-server",
 			},
 		},
-	},
-
-	-- async formatting on save
-	{
-		"lukas-reineke/lsp-format.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		init = function()
-			-- https://github.com/lukas-reineke/lsp-format.nvim#wq-will-not-format-when-not-using-sync
-			vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
-		end,
-		config = true,
 	},
 }
