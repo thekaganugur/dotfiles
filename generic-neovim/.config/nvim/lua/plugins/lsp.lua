@@ -32,7 +32,7 @@ return {
 			},
 		},
 		config = function(_, opts)
-			local configuredServers = {}
+			local configuredServers = { "tsserver" } -- tsserver is because we will ignore it.
 			for server, _ in pairs(opts.servers) do
 				table.insert(configuredServers, server)
 				require("lspconfig")[server].setup(opts.servers[server])
@@ -115,6 +115,7 @@ return {
 				"stylua",
 				"tailwindcss-language-server",
 				"yaml-language-server",
+				"typescript-language-server",
 			},
 		},
 	},
