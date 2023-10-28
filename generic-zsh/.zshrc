@@ -1,4 +1,4 @@
-mkdir -p $XDG_CACHE_HOME/zsh
+# mkdir -p $XDG_CACHE_HOME/zsh
 mkdir -p $HOME/.local/bin
 
 eval "$(starship init zsh)"
