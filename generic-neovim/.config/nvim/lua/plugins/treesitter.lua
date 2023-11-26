@@ -30,7 +30,6 @@ return {
 		indent = { enable = true },
 		autotag = { enable = true, enable_close_on_slash = false, enable_rename = true },
 		endwise = { enable = true },
-		context_commentstring = { enable = true, enable_autocmd = false },
 		textobjects = {
 			select = {
 				enable = true,

@@ -92,6 +92,15 @@ return {
 
 	-- comments
 	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		opts = { enable_autocmd = false },
+		config = function()
+			vim.g.skip_ts_context_commentstring_module = true
+		end,
+	},
+
+	-- comments
+	{
 		"echasnovski/mini.comment",
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 		event = "VeryLazy",
