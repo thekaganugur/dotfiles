@@ -29,6 +29,9 @@ return {
 						},
 					},
 				},
+				cssls = {
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				},
 			},
 		},
 		config = function(_, opts)
