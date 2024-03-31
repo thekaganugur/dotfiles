@@ -124,4 +124,6 @@ return {
 			remove_template_string = true, -- remove backticks when there are no template strings
 		},
 	},
+
+	{ "dmmulroy/tsc.nvim", config = true },
 }
