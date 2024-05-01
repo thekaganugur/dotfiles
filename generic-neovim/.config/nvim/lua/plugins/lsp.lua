@@ -70,6 +70,9 @@ return {
 			})
 		end,
 		opts = {
+			format_on_save = {
+				lsp_fallback = true, -- Attempt LSP formatting if no formatters are available
+			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				sh = { "beautysh" },

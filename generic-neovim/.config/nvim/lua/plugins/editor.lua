@@ -2,6 +2,8 @@ return {
 	-- search/replace in multiple files
 	{
 		"nvim-pack/nvim-spectre",
+		cmd = "Spectre",
+		opts = { is_block_ui_break = true },
     -- stylua: ignore
     keys = {
       { "<leader>ss", function() require("spectre").open() end, desc = "Replace in files [S]pectre" },
@@ -12,9 +14,7 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			filetypes_denylist = { "TelescopePrompt", "qf", "lir", "dirvish", "fugitive" },
-		},
+		opts = { filetypes_denylist = { "TelescopePrompt", "qf", "lir", "dirvish", "fugitive" } },
 		config = function(_, opts)
 			require("illuminate").configure(opts)
 		end,
