@@ -78,9 +78,9 @@ return {
 	},
 
 	{
-		"NvChad/nvim-colorizer.lua",
+		"brenoprata10/nvim-highlight-colors",
 		event = { "BufReadPre", "BufNewFile" },
-		opts = { user_default_options = { tailwind = true } },
+		opts = {},
 	},
 
 	{ "kevinhwang91/nvim-bqf", event = "VeryLazy", opts = { preview = { auto_preview = true } } },
