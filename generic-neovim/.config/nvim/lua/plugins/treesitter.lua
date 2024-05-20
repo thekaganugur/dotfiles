@@ -4,11 +4,10 @@ return {
 	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
-		"nvim-treesitter/playground",
-		"nvim-treesitter/nvim-treesitter-textobjects",
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		"windwp/nvim-ts-autotag",
-		"RRethy/nvim-treesitter-endwise",
+		{ "windwp/nvim-ts-autotag", opts = {} },
+
+		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
 	opts = {
 		ensure_installed = {
@@ -28,8 +27,7 @@ return {
 		auto_install = true,
 		highlight = { enable = true },
 		indent = { enable = true },
-		autotag = { enable = true, enable_close_on_slash = false, enable_rename = true },
-		endwise = { enable = true },
+
 		textobjects = {
 			select = {
 				enable = true,
