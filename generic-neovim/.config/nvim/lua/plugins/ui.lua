@@ -52,7 +52,4 @@ return {
 			extensions = { "fugitive", "quickfix" },
 		},
 	},
-
-	-- icons
-	{ "nvim-tree/nvim-web-devicons", lazy = true },
 }

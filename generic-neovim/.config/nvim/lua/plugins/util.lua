@@ -14,6 +14,6 @@ return {
 	-- library used by other plugins, vscode-like icon for lsp completion items
 	{ "onsails/lspkind.nvim", lazy = true },
 
-	-- makes some plugins dot-repeatable like leap
-	{ "tpope/vim-repeat", event = "VeryLazy" },
+	-- library used by other plugins to show icons
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
 }
