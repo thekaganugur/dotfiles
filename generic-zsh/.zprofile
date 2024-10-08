@@ -9,3 +9,6 @@ if [[ $OSTYPE == 'darwin'* ]]; then
     # Set PATH, MANPATH, etc., for Homebrew.
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# Added by `rbenv init` on Mon Sep 16 15:28:08 CEST 2024
+eval "$(rbenv init - --no-rehash zsh)"

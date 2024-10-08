@@ -35,7 +35,7 @@ return {
 			},
 		},
 		config = function(_, opts)
-			local configuredServers = { "tsserver" } -- tsserver is because we will ignore it.
+			local configuredServers = { "ts_ls" } -- tsserver is because we will ignore it.
 			for server, _ in pairs(opts.servers) do
 				table.insert(configuredServers, server)
 				require("lspconfig")[server].setup(opts.servers[server])
@@ -78,22 +78,22 @@ return {
 				sh = { "beautysh" },
 				zsh = { "beautysh" },
 
-				javascript = { { "prettierd", "prettier" } },
-				javascriptreact = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettierd", "prettier" } },
-				vue = { { "prettierd", "prettier" } },
-				css = { { "prettierd", "prettier" } },
-				scss = { { "prettierd", "prettier" } },
-				less = { { "prettierd", "prettier" } },
-				html = { { "prettierd", "prettier" } },
-				json = { { "prettierd", "prettier" } },
-				jsonc = { { "prettierd", "prettier" } },
-				yaml = { { "prettierd", "prettier" } },
-				markdown = { { "prettierd", "prettier" } },
-				["markdown.mdx"] = { { "prettierd", "prettier" } },
-				graphql = { { "prettierd", "prettier" } },
-				handlebars = { { "prettierd", "prettier" } },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+				vue = { "prettierd", "prettier", stop_after_first = true },
+				css = { "prettierd", "prettier", stop_after_first = true },
+				scss = { "prettierd", "prettier", stop_after_first = true },
+				less = { "prettierd", "prettier", stop_after_first = true },
+				html = { "prettierd", "prettier", stop_after_first = true },
+				json = { "prettierd", "prettier", stop_after_first = true },
+				jsonc = { "prettierd", "prettier", stop_after_first = true },
+				yaml = { "prettierd", "prettier", stop_after_first = true },
+				markdown = { "prettierd", "prettier", stop_after_first = true },
+				["markdown.mdx"] = { "prettierd", "prettier", stop_after_first = true },
+				graphql = { "prettierd", "prettier", stop_after_first = true },
+				handlebars = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
