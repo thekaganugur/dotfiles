@@ -95,23 +95,13 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		opts = { enable_autocmd = false },
 		config = function()
-			vim.g.skip_ts_context_commentstring_module = true
+			local get_option = vim.filetype.get_option
+			vim.filetype.get_option = function(filetype, option)
+				return option == "commentstring"
+						and require("ts_context_commentstring.internal").calculate_commentstring()
+					or get_option(filetype, option)
+			end
 		end,
-	},
-
-	-- comments
-	{
-		"echasnovski/mini.comment",
-		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
-		event = "VeryLazy",
-		opts = {
-			options = {
-				custom_commentstring = function()
-					return require("ts_context_commentstring.internal").calculate_commentstring()
-						or vim.bo.commentstring
-				end,
-			},
-		},
 	},
 
 	{ "kylechui/nvim-surround", event = "VeryLazy", config = true },
