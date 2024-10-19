@@ -9,7 +9,7 @@ return {
 			vim.g.everforest_enable_italic = true
 			vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 				callback = function()
-					vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { link = "DiagnosticInfo" })
+					-- vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { link = "DiagnosticInfo" })
 				end,
 			})
 		end,

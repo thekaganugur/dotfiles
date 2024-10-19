@@ -7,10 +7,26 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
-			{ "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
+			{ "yioneko/nvim-vtsls", config = function() end },
 		},
 		opts = {
 			servers = {
+				vtsls = {
+					settings = {
+						typescript = {
+							inlayHints = {
+								parameterNames = { enabled = "literals" },
+								parameterTypes = { enabled = true },
+								variableTypes = { enabled = true },
+								propertyDeclarationTypes = { enabled = true },
+								functionLikeReturnTypes = { enabled = true },
+								enumMemberValues = { enabled = true },
+							},
+							importModuleSpecifier = "relative",
+							pluginPaths = "relative",
+						},
+					},
+				},
 				eslint = {
 					on_attach = function(_, bufnr)
 						vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr, command = "EslintFixAll" })
@@ -35,7 +51,7 @@ return {
 			},
 		},
 		config = function(_, opts)
-			local configuredServers = { "ts_ls" } -- tsserver is because we will ignore it.
+			local configuredServers = { "" }
 			for server, _ in pairs(opts.servers) do
 				table.insert(configuredServers, server)
 				require("lspconfig")[server].setup(opts.servers[server])
@@ -78,22 +94,22 @@ return {
 				sh = { "beautysh" },
 				zsh = { "beautysh" },
 
-				javascript = { "prettierd", "prettier", stop_after_first = true },
-				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-				typescript = { "prettierd", "prettier", stop_after_first = true },
-				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-				vue = { "prettierd", "prettier", stop_after_first = true },
-				css = { "prettierd", "prettier", stop_after_first = true },
-				scss = { "prettierd", "prettier", stop_after_first = true },
-				less = { "prettierd", "prettier", stop_after_first = true },
-				html = { "prettierd", "prettier", stop_after_first = true },
-				json = { "prettierd", "prettier", stop_after_first = true },
-				jsonc = { "prettierd", "prettier", stop_after_first = true },
-				yaml = { "prettierd", "prettier", stop_after_first = true },
-				markdown = { "prettierd", "prettier", stop_after_first = true },
-				["markdown.mdx"] = { "prettierd", "prettier", stop_after_first = true },
-				graphql = { "prettierd", "prettier", stop_after_first = true },
-				handlebars = { "prettierd", "prettier", stop_after_first = true },
+				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+				-- javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				-- typescript = { "prettierd", "prettier", stop_after_first = true },
+				-- typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+				-- vue = { "prettierd", "prettier", stop_after_first = true },
+				-- css = { "prettierd", "prettier", stop_after_first = true },
+				-- scss = { "prettierd", "prettier", stop_after_first = true },
+				-- less = { "prettierd", "prettier", stop_after_first = true },
+				-- html = { "prettierd", "prettier", stop_after_first = true },
+				-- json = { "prettierd", "prettier", stop_after_first = true },
+				-- jsonc = { "prettierd", "prettier", stop_after_first = true },
+				-- yaml = { "prettierd", "prettier", stop_after_first = true },
+				-- markdown = { "prettierd", "prettier", stop_after_first = true },
+				-- ["markdown.mdx"] = { "prettierd", "prettier", stop_after_first = true },
+				-- graphql = { "prettierd", "prettier", stop_after_first = true },
+				-- handlebars = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
@@ -109,10 +125,11 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = {
 			ensure_installed = {
+				"vtsls",
+				"eslint-lsp",
 				"bash-language-server",
 				"beautysh",
 				"css-lsp",
-				"eslint-lsp",
 				"html-lsp",
 				"json-lsp",
 				"lua-language-server",
@@ -121,7 +138,6 @@ return {
 				"stylua",
 				"tailwindcss-language-server",
 				"yaml-language-server",
-				"typescript-language-server",
 			},
 		},
 	},

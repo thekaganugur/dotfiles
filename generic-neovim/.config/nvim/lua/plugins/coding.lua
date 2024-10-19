@@ -127,4 +127,12 @@ return {
 	-- 		},
 	-- 	},
 	-- },
+
+	{
+		"kwkarlwang/bufjump.nvim",
+		opts = {
+			backward_key = "<M-o>",
+			forward_key = "<M-ı>",
+		},
+	},
 }
