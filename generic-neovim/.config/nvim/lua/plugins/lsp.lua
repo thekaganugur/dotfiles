@@ -6,7 +6,6 @@ return {
 			{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			"hrsh7th/cmp-nvim-lsp",
 			{ "yioneko/nvim-vtsls", config = function() end },
 		},
 		opts = {
@@ -45,9 +44,6 @@ return {
 						},
 					},
 				},
-				cssls = {
-					capabilities = require("cmp_nvim_lsp").default_capabilities(),
-				},
 			},
 		},
 		config = function(_, opts)
@@ -61,11 +57,6 @@ return {
 			for _, server in ipairs(require("utils").filter_servers(installed_servers, configuredServers)) do
 				require("lspconfig")[server].setup({})
 			end
-
-			require("lspconfig").util.default_config =
-				vim.tbl_deep_extend("force", require("lspconfig").util.default_config, {
-					capabilities = require("cmp_nvim_lsp").default_capabilities(),
-				})
 		end,
 		init = function()
 			require("utils").on_attach(function(_client, buffer)

@@ -58,3 +58,5 @@ alias l='ls -CF'
 
 alias v="nvim"
 alias vf="vifm"
+alias g="git"
+alias lg="lazygit"

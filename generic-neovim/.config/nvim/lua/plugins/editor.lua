@@ -93,7 +93,23 @@ return {
 	{
 		"andrewferrier/debugprint.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		opts = { print_tag = "DEBUG", display_counter = false },
+		-- opts = { print_tag = "DEBUG", display_counter = false },
+		opts = function()
+			local js_like = {
+				left = 'console.log("',
+				right = '")',
+				mid_var = '", ',
+				right_var = ")",
+			}
+			return {
+				filetypes = {
+					["javascript"] = js_like,
+					["javascriptreact"] = js_like,
+					["typescript"] = js_like,
+					["typescriptreact"] = js_like,
+				},
+			}
+		end,
 	},
 
 	{
