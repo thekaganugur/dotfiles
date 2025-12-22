@@ -12,3 +12,7 @@ fi
 
 # Added by `rbenv init` on Mon Sep 16 15:28:08 CEST 2024
 eval "$(rbenv init - --no-rehash zsh)"
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

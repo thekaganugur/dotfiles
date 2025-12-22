@@ -1,13 +1,4 @@
 return {
-	-- better vim.ui
-	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
-		opts = {
-			input = { win_options = { winblend = 0 } },
-			select = { telescope = require("telescope.themes").get_cursor({ initial_mode = "normal" }) },
-		},
-	},
 
 	-- lsp symbol navigation breadcrumblike
 	{
@@ -52,4 +43,5 @@ return {
 			extensions = { "fugitive", "quickfix" },
 		},
 	},
+
 }

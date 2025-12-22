@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- wrap and check for spell in text filetypes
+-- Wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "gitcommit", "markdown" },
 	callback = function()
@@ -26,5 +26,15 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = "*prettier*",
 	callback = function()
 		vim.fn.system("prettierd restart")
+	end,
+})
+
+-- Resize fugitive buffer to be smaller
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "fugitive",
+	callback = function()
+		local height = math.min(math.floor(vim.o.lines * 0.40), 12)
+		vim.cmd("resize " .. height)
+		vim.cmd("normal! gg")
 	end,
 })

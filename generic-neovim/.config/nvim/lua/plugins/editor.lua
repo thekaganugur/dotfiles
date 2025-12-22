@@ -1,47 +1,9 @@
 return {
 	-- search/replace in multiple files
-	-- {
-	-- 	"nvim-pack/nvim-spectre",
-	-- 	cmd = "Spectre",
-	-- 	opts = { is_block_ui_break = true },
-	--    -- stylua: ignore
-	--    keys = {
-	--      { "<leader>ss", function() require("spectre").open() end, desc = "Replace in files [S]pectre" },
-	--    },
-	-- },
 	{
 		"MagicDuck/grug-far.nvim",
 		opts = { headerMaxWidth = 80 },
 		cmd = "GrugFar",
-		keys = {
-			{
-				"<leader>ss",
-				function()
-					local grug = require("grug-far")
-					-- Launch with the current visual selection, searching only current file
-					-- If a file is open in the buffer
-					local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-					grug.grug_far({
-						transient = true,
-						prefills = {
-							filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-						},
-					})
-				end,
-				mode = { "n", "v" },
-				desc = "Search and Replace",
-			},
-		},
-	},
-
-	-- references
-	{
-		"RRethy/vim-illuminate",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = { filetypes_denylist = { "TelescopePrompt", "qf", "lir", "dirvish", "fugitive" } },
-		config = function(_, opts)
-			require("illuminate").configure(opts)
-		end,
 	},
 
 	-- which-key
@@ -122,46 +84,23 @@ return {
 
 	{ "TamaMcGlinn/quickfixdd", event = "VeryLazy" },
 
-	{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+	{ "j-hui/fidget.nvim", opts = {} },
 
 	{
 		"kevinhwang91/nvim-ufo",
 		event = "VeryLazy",
 		dependencies = "kevinhwang91/promise-async",
-		opts = {},
 		init = function()
 			vim.opt.foldlevel = 99
-			vim.opt.foldlevelstart = 99
+			vim.opt.foldenable = true
+			vim.opt.foldnestmax = 1
 		end,
+		opts = {
+			provider_selector = function()
+				return { "treesitter", "indent" }
+			end,
+		},
 	},
 
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
-
-	{
-		"ruifm/gitlinker.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = "nvim-lua/plenary.nvim",
-		opts = {},
-	},
-
-	{
-		"kdheepak/lazygit.nvim",
-		lazy = true,
-		cmd = {
-			"LazyGit",
-			"LazyGitConfig",
-			"LazyGitCurrentFile",
-			"LazyGitFilter",
-			"LazyGitFilterCurrentFile",
-		},
-		-- optional for floating window border decoration
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		-- setting the keybinding for LazyGit with 'keys' is recommended in
-		-- order to load the plugin when the command is run for the first time
-		keys = {
-			{ "<leader>gl", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-		},
-	},
 }

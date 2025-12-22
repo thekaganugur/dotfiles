@@ -19,8 +19,9 @@ hs.hotkey.bind(hyper, "0", hs.reload, hs.alert.show("Config loaded"))
 
 local hyper_apps = {
 	E = "Finder",
-	B = "Google Chrome",
-	T = "Wezterm",
+	B = "Zen",
+	-- T = "kitty",
+	T = "wezterm",
 	M = "Mail",
 	A = "Calendar",
 	W = "WhatsApp",

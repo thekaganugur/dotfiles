@@ -1,5 +1,6 @@
 require("config.options")
 require("config.autocmds")
+require("config.commands")
 require("config.keymaps")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -9,13 +10,9 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
-
-if require("utils").is_wsl then
-	vim.opt.background = "light"
-end
+require("lazy").setup("plugins", { change_detection = { notify = false } })

@@ -6,61 +6,36 @@ return {
 			vim.keymap.set("n", "<leader>-", "<cmd>Vifm<cr>", { desc = "Vifm" })
 		end,
 	},
+
 	{
-		"tamago324/lir.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "tamago324/lir-git-status.nvim" },
-		keys = { { "-", "<Cmd>execute 'e ' .. expand('%:p:h')<CR>", "Open Lir" } },
-		opts = function()
-			local actions = require("lir.actions")
-			local mark_actions = require("lir.mark.actions")
-			local clipboard_actions = require("lir.clipboard.actions")
-			return {
-				show_hidden_files = true,
-				devicons = { enable = true, highlight_dirname = true },
-				mappings = {
-					["<Enter>"] = actions.edit,
-					["<C-s>"] = actions.split,
-					["<C-v>"] = actions.vsplit,
-					["<C-t>"] = actions.tabedit,
-
-					["-"] = actions.up,
-					["q"] = actions.quit,
-
-					["A"] = actions.mkdir,
-					["a"] = actions.touch,
-					["cw"] = actions.rename,
-					["D"] = actions.delete,
-
-					["@"] = actions.cd,
-					["."] = actions.toggle_show_hidden,
-
-					["t"] = mark_actions.toggle_mark,
-					["C"] = clipboard_actions.copy,
-					["X"] = clipboard_actions.cut,
-					["P"] = clipboard_actions.paste,
-				},
-			}
-		end,
-		config = function(_, opts)
-			require("lir.git_status").setup()
-			require("lir").setup(opts)
-		end,
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {
+			win_options = {
+				signcolumn = "yes:2",
+			},
+			keymaps = {
+				["<C-h>"] = false, -- Disable to avoid conflict with window navigation
+				["<C-s>"] = false, -- Disable to avoid conflict with window navigation
+				["<C-l>"] = false, -- Disable to avoid conflict with window navigation
+			},
+		},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = false,
 		init = function()
-			-- Disable netrw
-			vim.g.loaded_netrw = 1
-			vim.g.loaded_netrwPlugin = 1
+			-- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+			vim.keymap.set(
+				"n",
+				"-",
+				"<cmd>keepjumps Oil<CR>",
+				{ desc = "Open parent directory with Oil (without adding to jumplist)" }
+			)
 		end,
 	},
-
-	-- {
-	-- 	"stevearc/oil.nvim",
-	-- 	opts = {},
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- 	init = function()
-	-- 		-- Disable netrw
-	-- 		vim.g.loaded_netrw = 1
-	-- 		vim.g.loaded_netrwPlugin = 1
-	-- 		vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
-	-- 	end,
-	-- },
+	{
+		"refractalize/oil-git-status.nvim",
+		dependencies = { "stevearc/oil.nvim" },
+		config = true,
+	},
 }

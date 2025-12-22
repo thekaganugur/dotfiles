@@ -23,6 +23,7 @@ return {
 			"query",
 			"typescript",
 			"tsx",
+			"latex",
 		},
 		auto_install = true,
 		highlight = { enable = true },
@@ -42,7 +43,4 @@ return {
 			},
 		},
 	},
-	config = function(_, opts)
-		require("nvim-treesitter.configs").setup(opts)
-	end,
 }

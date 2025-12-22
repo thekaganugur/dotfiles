@@ -4,5 +4,8 @@
     "workspace.checkThirdParty": false,
     "diagnostics.globals": [
         "o"
+    ],
+    "diagnostics.disable": [
+        "duplicate-set-field"
     ]
 }
