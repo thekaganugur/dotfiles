@@ -4,6 +4,13 @@ return {
 		"MagicDuck/grug-far.nvim",
 		opts = { headerMaxWidth = 80 },
 		cmd = "GrugFar",
+		keys = { {
+			"<leader>ss",
+			function()
+				require("grug-far").open()
+			end,
+			desc = "GrugFar",
+		} },
 	},
 
 	-- which-key
@@ -74,33 +81,13 @@ return {
 		end,
 	},
 
-	{
-		"brenoprata10/nvim-highlight-colors",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {},
-	},
+	{ "brenoprata10/nvim-highlight-colors", event = { "BufReadPre", "BufNewFile" }, opts = {} },
 
 	{ "kevinhwang91/nvim-bqf", event = "VeryLazy", opts = { preview = { auto_preview = true } } },
 
 	{ "TamaMcGlinn/quickfixdd", event = "VeryLazy" },
 
 	{ "j-hui/fidget.nvim", opts = {} },
-
-	{
-		"kevinhwang91/nvim-ufo",
-		event = "VeryLazy",
-		dependencies = "kevinhwang91/promise-async",
-		init = function()
-			vim.opt.foldlevel = 99
-			vim.opt.foldenable = true
-			vim.opt.foldnestmax = 1
-		end,
-		opts = {
-			provider_selector = function()
-				return { "treesitter", "indent" }
-			end,
-		},
-	},
 
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
 }

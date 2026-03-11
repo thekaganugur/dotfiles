@@ -43,3 +43,9 @@ opt.expandtab = true
 opt.iskeyword:append({ "-" })
 opt.updatetime = 250
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
+
+vim.o.foldenable = true
+vim.o.foldlevel = 99
+-- vim.opt.foldnestmax = 1
+-- vim.o.foldtext = ""
+-- vim.opt.fillchars:append({ fold = " " })

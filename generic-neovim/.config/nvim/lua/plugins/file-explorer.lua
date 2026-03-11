@@ -19,12 +19,12 @@ return {
 				["<C-h>"] = false, -- Disable to avoid conflict with window navigation
 				["<C-s>"] = false, -- Disable to avoid conflict with window navigation
 				["<C-l>"] = false, -- Disable to avoid conflict with window navigation
+				["<C-p>"] = false, -- Disable to avoid conflict with window navigation
 			},
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		lazy = false,
 		init = function()
-			-- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 			vim.keymap.set(
 				"n",
 				"-",

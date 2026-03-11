@@ -1,5 +1,4 @@
 return {
-
 	-- lsp symbol navigation breadcrumblike
 	{
 		"utilyre/barbecue.nvim",
@@ -43,5 +42,4 @@ return {
 			extensions = { "fugitive", "quickfix" },
 		},
 	},
-
 }

@@ -19,7 +19,6 @@ return {
 				preset = "default",
 				["<C-h>"] = { "snippet_backward" },
 				["<C-l>"] = { "snippet_forward" },
-
 			},
 			appearance = { nerd_font_variant = "mono" },
 			signature = {
@@ -63,7 +62,7 @@ return {
 		},
 	},
 
-	{ "dmmulroy/tsc.nvim", config = true },
+	{ "dmmulroy/tsc.nvim", config = true, cmd = "TSC" },
 
 	{
 		"kwkarlwang/bufjump.nvim",
