@@ -20,5 +20,12 @@ tags
 # Persistent undo
 [._]*.un~
 
+# Runtime logs
+nvim.log
+.nvimlog
+
 ### Vifm ###
 vifminfo.json
+
+### Karabiner ###
+osx-karabiner/.config/karabiner/automatic_backups/

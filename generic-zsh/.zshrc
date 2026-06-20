@@ -14,6 +14,10 @@ compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 # Above line must be added after
 eval "$(zoxide init zsh)"
 
+if [[ $OSTYPE == 'darwin'* ]]; then
+  source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+fi
+
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -60,4 +64,93 @@ alias v="nvim"
 alias vf="vifm"
 alias g="git"
 alias lg="lazygit"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+
+load-nvm() {
+  [ -n "$_NVM_LOADED" ] && return
+
+  unset -f nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  _NVM_LOADED=1
+}
+
+nvm() {
+  load-nvm
+  nvm "$@"
+}
+
+find-nvmrc() {
+  local dir="$PWD"
+
+  while [ "$dir" != "/" ]; do
+    if [ -f "$dir/.nvmrc" ]; then
+      echo "$dir/.nvmrc"
+      return
+    fi
+
+    dir="${dir:h}"
+  done
+}
+
+current-node-matches-nvmrc() {
+  local wanted current
+
+  IFS= read -r wanted < "$1"
+  current="$(command node -v 2>/dev/null)" || return 1
+
+  case "$wanted" in
+    [0-9]*)
+      case "$current" in
+        "v$wanted"|"v$wanted".*) return 0 ;;
+      esac
+      ;;
+    v[0-9]*)
+      case "$current" in
+        "$wanted"|"$wanted".*) return 0 ;;
+      esac
+      ;;
+  esac
+
+  return 1
+}
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(find-nvmrc)"
+
+  if [ "$nvmrc_path" = "$_LAST_NVMRC_PATH" ]; then
+    return
+  fi
+
+  _LAST_NVMRC_PATH="$nvmrc_path"
+
+  if [ -n "$nvmrc_path" ] && ! current-node-matches-nvmrc "$nvmrc_path"; then
+    load-nvm
+    nvm use --silent || nvm install
+  fi
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# Added by git-ai installer on Fri Jun  5 09:30:32 +03 2026
+export PATH="/Users/kgnugur/.git-ai/bin:$PATH"
+
+# cubic
+export PATH="/Users/kgnugur/.cubic/bin":$PATH
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+. "$HOME/.local/share/../bin/env"

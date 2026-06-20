@@ -10,8 +10,8 @@ vim.keymap.set("v", "p", '"_dP', { desc = "Paste over currently selected text wi
 
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
-vim.keymap.set("n", "<leader>r", "<cmd>RunCode<cr>", { desc = "Run code with node" })
 
 vim.keymap.set("n", "<leader>.", "<cmd>e $HOME/.config/nvim/init.lua<cr>", { desc = "Open init" })
 
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+vim.keymap.set("t", "<F12>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })

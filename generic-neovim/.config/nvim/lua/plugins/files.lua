@@ -1,13 +1,5 @@
 return {
 	{
-		"vifm/vifm.vim",
-		cmd = "Vifm",
-		init = function()
-			vim.keymap.set("n", "<leader>-", "<cmd>Vifm<cr>", { desc = "Vifm" })
-		end,
-	},
-
-	{
 		"stevearc/oil.nvim",
 		---@module 'oil'
 		---@type oil.SetupOpts
@@ -25,17 +17,39 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		lazy = false,
 		init = function()
-			vim.keymap.set(
-				"n",
-				"-",
-				"<cmd>keepjumps Oil<CR>",
-				{ desc = "Open parent directory with Oil (without adding to jumplist)" }
-			)
+			vim.g.loaded_netrwPlugin = 1
 		end,
+		keys = {
+			{ "-", "<cmd>keepjumps Oil<CR>", desc = "Open parent directory with Oil (without adding to jumplist)" },
+		},
 	},
 	{
 		"refractalize/oil-git-status.nvim",
 		dependencies = { "stevearc/oil.nvim" },
 		config = true,
+	},
+
+	---@type LazySpec
+	{
+		"mikavilpas/yazi.nvim",
+		version = "*", -- use the latest stable version
+		event = "VeryLazy",
+		dependencies = { "nvim-lua/plenary.nvim", lazy = true },
+
+		keys = {
+			{ "<leader>-", mode = { "n", "v" }, "<cmd>Yazi<cr>", desc = "Open yazi at the current file" },
+			{
+				"<c-up>",
+				"<cmd>Yazi toggle<cr>",
+				desc = "Resume the last yazi session",
+			},
+		},
+		---@type YaziConfig | {}
+		opts = {
+			open_for_directories = false,
+			keymaps = {
+				show_help = "<f1>",
+			},
+		},
 	},
 }

@@ -11,7 +11,7 @@ stow generic-*
 
 # for osx
 stow osx-*
-./osx-setup.sh
+./setup-osx.sh
 
 # for linux
 stow linux-*

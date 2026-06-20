@@ -4,8 +4,8 @@ local act = wezterm.action
 local config = {
 	check_for_updates = false,
 
-	font = wezterm.font("Iosevka NFM"),
-	font_size = 18.0,
+	font = wezterm.font("Iosevka Nerd Font Mono"),
+	font_size = 19.0,
 	line_height = 1.1,
 	color_scheme = "Everforest Light (Hard)",
 	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },

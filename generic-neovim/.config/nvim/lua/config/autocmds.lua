@@ -1,22 +1,16 @@
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	group = vim.api.nvim_create_augroup("DisableAutoComment", { clear = true }),
 	callback = function()
-		vim.opt.formatoptions:remove({ "c", "r", "o" })
+		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
 	end,
 })
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("HighlightOnYank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
-	end,
-})
-
--- Wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "gitcommit", "markdown" },
-	callback = function()
-		vim.opt_local.wrap = true
 	end,
 })
 
@@ -31,10 +25,11 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 -- Resize fugitive buffer to be smaller
 vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("FugitiveWindowSizing", { clear = true }),
 	pattern = "fugitive",
 	callback = function()
-		local height = math.min(math.floor(vim.o.lines * 0.40), 12)
-		vim.cmd("resize " .. height)
-		vim.cmd("normal! gg")
+		local height = math.min(math.floor(vim.o.lines * 0.30), 10)
+		vim.api.nvim_win_set_height(0, height)
+		vim.cmd.normal({ "gg", bang = true })
 	end,
 })

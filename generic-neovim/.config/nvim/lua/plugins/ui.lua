@@ -1,36 +1,36 @@
 return {
-	-- lsp symbol navigation breadcrumblike
 	{
-		"utilyre/barbecue.nvim",
-		event = { "BufReadPost", "BufNewFile" },
-		dependencies = { "SmiteshP/nvim-navic", "onsails/lspkind.nvim" },
-		opts = function()
-			return { show_dirname = false, kinds = require("lspkind").symbol_map }
+		"folke/which-key.nvim", -- Show available keybindings as you type
+		event = "VeryLazy",
+		config = function(_, opts)
+			vim.o.timeoutlen = 300
+			require("which-key").setup()
+			require("which-key").add({
+				{ "<leader>a", desc = "+[A]I" },
+				{ "<leader>d", desc = "+[D]iagnostics" },
+				{ "<leader>g", desc = "+[G]it" },
+				{ "<leader>h", desc = "+[H]unks" },
+				{ "<leader>s", desc = "+[S]earch" },
+				{ "<leader>x", desc = "+[X] Lists" },
+			})
 		end,
 	},
 
 	{
-		"anuvyklack/windows.nvim",
+		"anuvyklack/windows.nvim", -- Auto-resize and maximize the active window
 		event = "VeryLazy",
 		dependencies = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" },
-		opts = {
-			animation = { duration = 100 },
-			ignore = {
-				buftype = { "quickfix" },
-				filetype = { "NvimTree", "neo-tree", "undotree", "gundo", "lir" },
-			},
-		},
+		opts = { animation = { duration = 100 }, ignore = { buftype = { "quickfix" } } },
+		keys = { { "<C-w>z", "<Cmd>WindowsMaximize<CR>", desc = "Maximize Window" } },
 		init = function()
 			vim.opt.winwidth = 10
 			vim.opt.winminwidth = 10
 			vim.opt.equalalways = false
-			vim.keymap.set("n", "<C-w>z", "<Cmd>WindowsMaximize<CR>", { desc = "Maximize Window" })
 		end,
 	},
 
-	-- statusline
 	{
-		"hoob3rt/lualine.nvim",
+		"nvim-lualine/lualine.nvim", -- Show a lightweight statusline
 		opts = {
 			options = { theme = "auto", section_separators = "", globalstatus = true },
 			sections = {
@@ -41,5 +41,11 @@ return {
 			},
 			extensions = { "fugitive", "quickfix" },
 		},
+	},
+
+	{
+		"MeanderingProgrammer/render-markdown.nvim", -- Render Markdown with richer inline visuals
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		opts = { completions = { lsp = { enabled = true } } },
 	},
 }
