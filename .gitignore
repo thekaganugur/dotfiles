@@ -29,3 +29,9 @@ vifminfo.json
 
 ### Karabiner ###
 osx-karabiner/.config/karabiner/automatic_backups/
+
+### Lazygit ###
+generic-lazygit/.config/lazygit/state.yml
+generic-lazygit/.config/lazygit/temp_lazygit.tar.gz
+generic-lazygit/.config/lazygit/node_modules/
+generic-lazygit/.config/lazygit/yarn.lock
