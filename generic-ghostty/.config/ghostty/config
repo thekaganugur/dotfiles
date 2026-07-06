@@ -1,6 +1,7 @@
 theme = light:everforest-light-hard,dark:everforest-dark-hard
 font-family = "Iosevka Nerd Font Mono"
-font-size=19
+font-size=18
+window-inherit-font-size = false
 adjust-cell-height = 5%
 
 # Keep right Option for macOS symbols like #.
@@ -17,3 +18,5 @@ keybind = shift+ü=text:}
 
 # Preserve Neovim jumplist-forward on Turkish layout.
 keybind = ctrl+key_i=text:\x09
+
+macos-titlebar-style = tabs
