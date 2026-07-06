@@ -1,0 +1,10 @@
+{
+  "name": "pi-extensions",
+  "private": true,
+  "dependencies": {
+    "@hypabolic/pi-hypa": "^0.1.6",
+    "@juicesharp/rpiv-ask-user-question": "^1.20.0",
+    "pi-subagents": "^0.33.1",
+    "pi-web-access": "^0.13.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "lastChangelogVersion": "0.80.3",
+  "theme": "light/dark",
+  "defaultProvider": "neuralwatt",
+  "defaultModel": "glm-5.2-short",
+  "defaultThinkingLevel": "medium",
+  "showHardwareCursor": false,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "doubleEscapeAction": "tree",
+  "editorPaddingX": 2,
+  "outputPad": 1,
+  "treeFilterMode": "default",
+  "hideThinkingBlock": true,
+  "enabledModels": [
+    "neuralwatt/glm-5.2*",
+    "openai-codex/gpt-5.5"
+  ],
+  "packages": [
+    {
+      "source": "git:github.com/DietrichGebert/ponytail",
+      "extensions": [
+        "-pi-extension/index.js"
+      ],
+      "skills": [
+        "+skills/ponytail/SKILL.md"
+      ]
+    },
+    "npm:pi-web-access",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-subagents"
+  ]
+}
