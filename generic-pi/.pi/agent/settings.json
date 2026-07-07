@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.80.3",
   "theme": "light/dark",
-  "defaultProvider": "neuralwatt",
-  "defaultModel": "glm-5.2-short",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "medium",
   "showHardwareCursor": false,
   "terminal": {
