@@ -38,3 +38,10 @@ generic-lazygit/.config/lazygit/yarn.lock
 
 ### Claude Code ###
 generic-claude/.claude/plugins/installed_plugins.json
+
+### Herdr ###
+generic-herdr/.config/herdr/*.log
+generic-herdr/.config/herdr/*.sock
+generic-herdr/.config/herdr/session.json
+generic-herdr/.config/herdr/plugins.json
+generic-herdr/.config/herdr/plugins/
