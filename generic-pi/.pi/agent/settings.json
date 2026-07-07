@@ -31,6 +31,6 @@
     "npm:pi-subagents",
     "npm:pi-web-access",
     "npm:pi-ask-user",
-    { "source": "npm:pi-caveman", "extensions": ["./extensions/caveman.ts"] }
+    "git:github.com/jonjonrankin/pi-caveman"
   ]
 }
