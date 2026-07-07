@@ -35,3 +35,6 @@ generic-lazygit/.config/lazygit/state.yml
 generic-lazygit/.config/lazygit/temp_lazygit.tar.gz
 generic-lazygit/.config/lazygit/node_modules/
 generic-lazygit/.config/lazygit/yarn.lock
+
+### Claude Code ###
+generic-claude/.claude/plugins/installed_plugins.json
