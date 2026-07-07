@@ -111,24 +111,6 @@
       "installedAt": "2026-05-17T08:21:13.015Z",
       "updatedAt": "2026-06-10T08:33:20.732Z"
     },
-    "vercel-composition-patterns": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/composition-patterns/SKILL.md",
-      "skillFolderHash": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
-      "installedAt": "2026-05-17T15:02:26.797Z",
-      "updatedAt": "2026-05-17T15:24:12.309Z"
-    },
-    "playwright-best-practices": {
-      "source": "currents-dev/playwright-best-practices-skill",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/currents-dev/playwright-best-practices-skill.git",
-      "skillPath": "SKILL.md",
-      "skillFolderHash": "ef329e7e65149918e1ff0eed2cf7d2e6e6f9eb5b",
-      "installedAt": "2026-05-17T15:06:52.682Z",
-      "updatedAt": "2026-05-17T15:23:02.574Z"
-    },
     "setup-matt-pocock-skills": {
       "source": "mattpocock/skills",
       "sourceType": "github",
