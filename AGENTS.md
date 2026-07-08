@@ -4,15 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-Dotfiles repo. Primary focus is Neovim config in `generic-neovim/.config/nvim/`, optimized for JS/TS frontend development. Also includes configs for Ghostty, Hammerspoon, Karabiner, Lazygit, Yazi, zsh, starship, and vifm.
+Dotfiles repo managed with chezmoi. Primary focus is Neovim config in `home/dot_config/nvim/`, optimized for JS/TS frontend development. Also includes configs for Ghostty, Hammerspoon, Karabiner, Lazygit, Yazi, zsh, starship, and vifm.
 
 ## Installation
 
 ```bash
-stow generic-*        # all generic configs
-stow osx-* && ./setup-osx.sh  # macOS extras
-stow linux-*          # Linux extras
+brew install chezmoi
+chezmoi init --apply kgnugur
 ```
+
+Chezmoi source root is `home/` via `.chezmoiroot`. macOS-only configs are ignored on non-macOS by `home/.chezmoiignore`.
 
 ## Neovim Architecture
 

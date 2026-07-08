@@ -1,8 +1,0 @@
-[mgr]
-sort_by     = "natural"
-linemode    = "mtime_dmy"
-scrolloff   = 8
-
-[preview]
-wrap        = "yes"
-image_delay = 80

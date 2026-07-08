@@ -1,4 +1,4 @@
-# Follow stowed/symlinked config files.
+# Follow symlinked config files.
 --follow
 
 # Case-insensitive unless the query contains uppercase.
