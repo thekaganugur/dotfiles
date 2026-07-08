@@ -1,0 +1,22 @@
+theme = light:everforest-light-hard,dark:everforest-dark-hard
+font-family = "Iosevka Nerd Font Mono"
+font-size=18
+window-inherit-font-size = false
+adjust-cell-height = 5%
+
+# Keep right Option for macOS symbols like #.
+macos-option-as-alt = left
+
+# Preserve shell word-delete.
+keybind = alt+backspace=text:\x17
+
+# Restore ASCII brackets on Turkish layout.
+keybind = ğ=text:[
+keybind = ü=text:]
+keybind = shift+ğ=text:{
+keybind = shift+ü=text:}
+
+# Preserve Neovim jumplist-forward on Turkish layout.
+keybind = ctrl+key_i=text:\x09
+
+macos-titlebar-style = tabs

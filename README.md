@@ -1,18 +1,27 @@
-# Dot Nvim
+# Dotfiles
 
-My neovim config for frontend development.
+Managed with [chezmoi](https://www.chezmoi.io/).
 
-## Quickstart
-
-[Stow](https://www.gnu.org/software/stow/) is supported.
+## Install
 
 ```bash
-stow generic-*
-
-# for osx
-stow osx-*
-./setup-osx.sh
-
-# for linux
-stow linux-*
+brew install chezmoi
+chezmoi init --apply kgnugur
 ```
+
+## Local checkout
+
+```bash
+git clone git@github.com:kgnugur/dotfiles.git ~/.local/share/chezmoi
+chezmoi apply
+```
+
+## Edit
+
+```bash
+chezmoi edit ~/.zshrc
+chezmoi diff
+chezmoi apply
+```
+
+macOS-only configs are ignored on non-macOS via `home/.chezmoiignore`.
