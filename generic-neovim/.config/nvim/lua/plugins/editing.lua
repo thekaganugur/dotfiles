@@ -37,6 +37,18 @@ return {
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} }, -- Close pairs while typing
 	{ "windwp/nvim-ts-autotag", event = { "BufReadPre", "BufNewFile" }, opts = {} }, -- Auto-close and rename matching tags
 	{ "kylechui/nvim-surround", event = "VeryLazy", opts = {} }, -- Add, change, and delete surrounds
+	{
+		"obsidian-nvim/obsidian.nvim",
+		version = "*",
+		---@module "obsidian"
+		---@type obsidian.config
+		opts = {
+			legacy_commands = false,
+			workspaces = {
+				{ name = "personal", path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian-vault" },
+			},
+		},
+	},
 	{ "axelvc/template-string.nvim", opts = { remove_template_string = true } }, -- Switch quotes to backticks when needed
 	{
 		"andrewferrier/debugprint.nvim", -- Insert temporary print-style debugging lines
@@ -54,4 +66,18 @@ return {
 		end,
 	},
 	{ "brenoprata10/nvim-highlight-colors", event = { "BufReadPre", "BufNewFile" }, opts = {} }, -- Preview color values inline
+
+	-- Lazy
+	{
+		"dlyongemallo/diffview-plus.nvim",
+		version = "*",
+		-- optional: lazy-load on command
+		-- cmd = {
+		--     "DiffviewOpen",
+		--     "DiffviewToggle",
+		--     "DiffviewFileHistory",
+		--     "DiffviewDiffFiles",
+		--     "DiffviewLog",
+		-- },
+	},
 }

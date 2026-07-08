@@ -20,7 +20,13 @@ return {
 		"anuvyklack/windows.nvim", -- Auto-resize and maximize the active window
 		event = "VeryLazy",
 		dependencies = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" },
-		opts = { animation = { duration = 100 }, ignore = { buftype = { "quickfix" } } },
+		opts = {
+			animation = { duration = 100 },
+			ignore = {
+				buftype = { "quickfix" },
+				filetype = { "DiffviewFiles", "DiffviewFileHistory" },
+			},
+		},
 		keys = { { "<C-w>z", "<Cmd>WindowsMaximize<CR>", desc = "Maximize Window" } },
 		init = function()
 			vim.opt.winwidth = 10

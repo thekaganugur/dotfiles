@@ -1,12 +1,8 @@
 # Global Coding Preferences
 
-Keep code simple, explicit, easy to change. Match existing project style.
-
 ## Always Apply
 
-- Reuse existing patterns before creating new ones.
 - Keep related logic close to where used.
-- Add abstractions only when they clearly improve clarity.
 
 ## JavaScript / TypeScript / React
 

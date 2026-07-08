@@ -23,7 +23,10 @@ return {
 			"fzf-vim",
 			fzf_colors = true,
 			defaults = { cwd_prompt = false },
-			grep = { file_ignore_patterns = { "yarn%.lock$" } },
+			grep = {
+				RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
+				file_ignore_patterns = { "yarn%.lock$" },
+			},
 			global = { file_ignore_patterns = { "%.yarn/" } },
 			keymap = { fzf = { ["ctrl-q"] = "select-all+accept" } }, -- use ctrl-q to select all items and convert to quickfix list
 		},

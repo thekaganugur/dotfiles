@@ -3,7 +3,7 @@
   "theme": "light/dark",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "showHardwareCursor": false,
   "terminal": {
     "showTerminalProgress": true
