@@ -10,7 +10,7 @@ Dotfiles repo managed with chezmoi. Primary focus is Neovim config in `home/dot_
 
 ```bash
 brew install chezmoi
-chezmoi init --apply kgnugur
+chezmoi init --apply thekaganugur
 ```
 
 Chezmoi source root is `home/` via `.chezmoiroot`. macOS-only configs are ignored on non-macOS by `home/.chezmoiignore`.

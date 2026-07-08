@@ -6,13 +6,13 @@ Managed with [chezmoi](https://www.chezmoi.io/).
 
 ```bash
 brew install chezmoi
-chezmoi init --apply kgnugur
+chezmoi init --apply thekaganugur
 ```
 
 ## Local checkout
 
 ```bash
-git clone git@github.com:kgnugur/dotfiles.git ~/.local/share/chezmoi
+git clone git@github.com:thekaganugur/dotfiles.git ~/.local/share/chezmoi
 chezmoi apply
 ```
 
