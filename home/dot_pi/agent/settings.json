@@ -3,7 +3,7 @@
   "theme": "light/dark",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "minimal",
   "showHardwareCursor": false,
   "terminal": {
     "showTerminalProgress": true
@@ -13,24 +13,18 @@
   "outputPad": 1,
   "treeFilterMode": "default",
   "hideThinkingBlock": false,
-  "enabledModels": [
-    "neuralwatt/glm-5.2*",
-    "openai-codex/gpt-5.5"
-  ],
+  "enabledModels": ["neuralwatt/glm-5.2*", "openai-codex/gpt-5.5"],
   "packages": [
+    "git:github.com/jonjonrankin/pi-caveman",
     {
       "source": "git:github.com/DietrichGebert/ponytail",
-      "extensions": [
-        "-pi-extension/index.js"
-      ],
-      "skills": [
-        "+skills/ponytail/SKILL.md"
-      ]
+      "extensions": ["-pi-extension/index.js"],
+      "skills": ["+skills/ponytail/SKILL.md"]
     },
     "npm:@upstash/context7-pi",
     "npm:pi-subagents",
     "npm:pi-web-access",
-    "npm:pi-ask-user",
-    "git:github.com/jonjonrankin/pi-caveman"
+    "npm:pi-ask-user"
   ]
 }
+

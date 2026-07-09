@@ -24,7 +24,7 @@
   "enabledPlugins": {
     "caveman@caveman": true,
     "ponytail@ponytail": true,
-    "worktrunk@worktrunk": true
+    "context7@context7-marketplace": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -39,10 +39,10 @@
         "repo": "DietrichGebert/ponytail"
       }
     },
-    "worktrunk": {
+    "context7-marketplace": {
       "source": {
         "source": "github",
-        "repo": "max-sixty/worktrunk"
+        "repo": "upstash/context7"
       }
     }
   },
