@@ -25,3 +25,5 @@ chezmoi apply
 ```
 
 macOS-only configs are ignored on non-macOS via `home/.chezmoiignore`.
+
+Agent skills are high-churn, so chezmoi manages `~/.agents` as a symlink to `live/agents`.

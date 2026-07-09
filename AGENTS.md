@@ -13,7 +13,7 @@ brew install chezmoi
 chezmoi init --apply thekaganugur
 ```
 
-Chezmoi source root is `home/` via `.chezmoiroot`. macOS-only configs are ignored on non-macOS by `home/.chezmoiignore`.
+Chezmoi source root is `home/` via `.chezmoiroot`. macOS-only configs are ignored on non-macOS by `home/.chezmoiignore`. Agent skills are high-churn: chezmoi manages `~/.agents` as a symlink to `live/agents`, and `~/.claude/skills` as a symlink to `~/.agents/skills`.
 
 ## Neovim Architecture
 

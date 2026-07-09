@@ -28,20 +28,23 @@ nvim.log
 vifminfo.json
 
 ### Karabiner ###
-osx-karabiner/.config/karabiner/automatic_backups/
+home/dot_config/karabiner/automatic_backups/
 
 ### Lazygit ###
-generic-lazygit/.config/lazygit/state.yml
-generic-lazygit/.config/lazygit/temp_lazygit.tar.gz
-generic-lazygit/.config/lazygit/node_modules/
-generic-lazygit/.config/lazygit/yarn.lock
+home/dot_config/lazygit/state.yml
+home/dot_config/lazygit/temp_lazygit.tar.gz
+home/dot_config/lazygit/node_modules/
+home/dot_config/lazygit/yarn.lock
 
 ### Claude Code ###
-generic-claude/.claude/plugins/installed_plugins.json
+home/dot_claude/plugins/installed_plugins.json
+
+### Agent skills ###
+live/agents/**/.claude/settings.local.json
 
 ### Herdr ###
-generic-herdr/.config/herdr/*.log
-generic-herdr/.config/herdr/*.sock
-generic-herdr/.config/herdr/session.json
-generic-herdr/.config/herdr/plugins.json
-generic-herdr/.config/herdr/plugins/
+home/dot_config/herdr/*.log
+home/dot_config/herdr/*.sock
+home/dot_config/herdr/session.json
+home/dot_config/herdr/plugins.json
+home/dot_config/herdr/plugins/
