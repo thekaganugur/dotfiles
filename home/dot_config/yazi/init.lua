@@ -1,3 +1,7 @@
+require("git"):setup {
+	order = 1500,
+}
+
 function Linemode:mtime_dmy()
 	local time = math.floor(self._file.cha.mtime or 0)
 	if time == 0 then

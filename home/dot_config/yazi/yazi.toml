@@ -6,3 +6,13 @@ scrolloff   = 8
 [preview]
 wrap        = "yes"
 image_delay = 80
+
+[[plugin.prepend_fetchers]]
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url   = "*/"
+run   = "git"
+group = "git"
