@@ -6,6 +6,7 @@ show_agent_labels_on_pane_borders = false
 [experimental]
 pane_history = false
 
+switch_ascii_input_source_in_prefix = true
 [ui.toast]
 delivery = "terminal"
 
@@ -22,5 +23,5 @@ command = "worktrunk.remove"
 description = "Worktree: remove"
 
 [theme]
-name = "gruvbox-light"
+name = "catppuccin-latte"
 auto_switch = false
