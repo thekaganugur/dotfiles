@@ -1,0 +1,6 @@
+# Home server over Tailscale SSH
+[services.homeserver]
+type = "sftp"
+host = "kgnugur-msi.tailf9cd56.ts.net"
+user = "kgnugur"
+port = 22

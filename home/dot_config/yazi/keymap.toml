@@ -23,3 +23,8 @@ desc = "Switch to flat view"
 on   = "C"
 run  = "plugin zip-hovered"
 desc = "Zip hovered file"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "s" ]
+run  = "cd sftp://homeserver"
+desc = "Go to home server"
